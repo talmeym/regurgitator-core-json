@@ -69,6 +69,10 @@ public class JsonConfigUtil {
 		return jsonObject.containsKey(key) ? jsonObject.getString(key) : null;
 	}
 
+	public static boolean loadOptionalBoolean(JSONObject jsonObject, String key) {
+		return jsonObject.containsKey(key) && jsonObject.getBoolean(key);
+	}
+
 	public static String loadMandatoryStr(JSONObject jsonObject, String key) throws RegurgitatorException {
 		if(jsonObject.containsKey(key)) {
 			return jsonObject.getString(key);
