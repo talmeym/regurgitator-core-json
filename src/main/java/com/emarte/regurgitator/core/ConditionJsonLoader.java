@@ -11,8 +11,7 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static java.util.Map.Entry;
 
 public class ConditionJsonLoader {
-	private static Log log = Log.getLog(ConditionJsonLoader.class);
-
+	private static final Log log = Log.getLog(ConditionJsonLoader.class);
 	private static final JsonLoaderUtil<JsonLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<ConditionBehaviour>>();
 
 	public static Condition load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
