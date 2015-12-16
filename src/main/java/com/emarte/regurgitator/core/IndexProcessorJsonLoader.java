@@ -15,6 +15,6 @@ public class IndexProcessorJsonLoader implements JsonLoader<ValueProcessor> {
 		String source = loadOptionalStr(jsonObject, SOURCE);
 		String value = loadOptionalStr(jsonObject, VALUE);
 		log.debug("Loaded index processor");
-		return new IndexProcessor(source != null ? new ContextLocation(source) : null, value);
+		return new IndexProcessor(new ValueSource(source != null ? new ContextLocation(source) : null, value));
 	}
 }

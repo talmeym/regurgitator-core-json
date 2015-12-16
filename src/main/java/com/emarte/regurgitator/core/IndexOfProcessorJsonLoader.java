@@ -17,6 +17,6 @@ public class IndexOfProcessorJsonLoader implements JsonLoader<ValueProcessor> {
 		String value = loadOptionalStr(jsonObject, VALUE);
 		boolean backwards = loadOptionalBoolean(jsonObject, LAST);
 		log.debug("Loaded index of processor");
-		return new IndexOfProcessor(source != null ? new ContextLocation(source) : null, value, backwards);
+		return new IndexOfProcessor(new ValueSource(source != null ? new ContextLocation(source) : null, value), backwards);
 	}
 }
