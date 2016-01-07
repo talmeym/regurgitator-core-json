@@ -4,6 +4,7 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
+import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 
 public class IsolateJsonLoader implements JsonLoader<Isolate> {
@@ -12,13 +13,14 @@ public class IsolateJsonLoader implements JsonLoader<Isolate> {
 
 	@Override
 	public Isolate load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		JSONObject stepObj = loadMandatoryObj(jsonObject, CoreConfigConstants.STEP);
+		JSONObject stepObj = loadMandatoryObj(jsonObject, STEP);
 		Step step = stepLoaderUtil.deriveLoader(stepObj).load(stepObj, allIds);
 
-		boolean includeSession = loadOptionalBoolean(jsonObject, CoreConfigConstants.INCLUDE_SESSION);
+		boolean includeSession = loadOptionalBoolean(jsonObject, INCLUDE_SESSION);
+		boolean includeParameters = loadOptionalBoolean(jsonObject, INCLUDE_PARAMETERS);
 
 		String id = loadId(jsonObject, allIds);
 		log.debug("Loaded Isolate '" + id + "'");
-		return new Isolate(id, step, includeSession);
+		return new Isolate(id, step, includeSession, includeParameters);
 	}
 }
