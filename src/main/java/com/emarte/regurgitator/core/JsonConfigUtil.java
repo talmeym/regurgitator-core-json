@@ -45,8 +45,8 @@ public class JsonConfigUtil {
 		return new ParameterPrototype(loadName(jsonObject), loadType(jsonObject), loadConflictPolicy(jsonObject));
 	}
 
-	public static String loadName(JSONObject jsonObject) {
-		return new ContextLocation(jsonObject.getString(NAME)).getName();
+	public static String loadName(JSONObject jsonObject) throws RegurgitatorException {
+		return new ContextLocation(loadMandatoryStr(jsonObject, NAME)).getName();
 	}
 
 	public static ParameterType loadType(JSONObject jsonObject) throws RegurgitatorException {
@@ -57,8 +57,8 @@ public class JsonConfigUtil {
 		return jsonObject.containsKey(MERGE) ? ConflictPolicy.valueOf(jsonObject.getString(MERGE)) : REPLACE;
 	}
 
-	public static ContextLocation loadContextLocation(JSONObject jsonObject) {
-		return new ContextLocation(jsonObject.getString(SOURCE));
+	public static ContextLocation loadContextLocation(JSONObject jsonObject) throws RegurgitatorException {
+		return new ContextLocation(loadMandatoryStr(jsonObject, SOURCE));
 	}
 
 	public static String loadContext(JSONObject jsonObject) {
