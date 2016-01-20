@@ -4,8 +4,9 @@ import net.sf.json.*;
 
 import java.util.*;
 
+import static com.emarte.regurgitator.core.CoreConfigConstants.ISOLATE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.STEPS;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 
 public class SequenceJsonLoader implements JsonLoader<Step> {
     private static final Log log = Log.getLog(SequenceJsonLoader.class);
@@ -27,6 +28,11 @@ public class SequenceJsonLoader implements JsonLoader<Step> {
 
 		String id = loadId(jsonObject, allIds);
 		log.debug("Loaded sequence '" + id + "'");
-		return new Sequence(id, steps);
+		return new Sequence(id, steps, loadIsolate(jsonObject));
+	}
+
+	private Isolate loadIsolate(JSONObject jsonObject) {
+		String isolateStr = loadOptionalStr(jsonObject, ISOLATE);
+		return isolateStr != null ? new Isolate(isolateStr.contains("session"), isolateStr.contains("param")) : null;
 	}
 }
