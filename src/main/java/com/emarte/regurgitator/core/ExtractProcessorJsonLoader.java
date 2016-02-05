@@ -11,7 +11,7 @@ public class ExtractProcessorJsonLoader implements JsonLoader<ValueProcessor> {
 
 	@Override
 	public ValueProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		log.debug("Loaded extract value");
+		log.debug("Loaded extract processor");
 		return new ExtractProcessor(jsonObject.getString(FORMAT), jsonObject.getInt(INDEX));
 	}
 }
