@@ -9,8 +9,8 @@ a sequence is a step that executes a series of child steps, one after another in
 
 ```json
 {
-    "id": "my-sequence",
     "kind": "sequence",
+    "id": "my-sequence",
     "steps": [
         {
             "kind": "create-parameter",
@@ -31,8 +31,8 @@ when a sequence executes each of it's steps, it passed on the message object tha
 
 ```json
 {
-    "id": "my-sequence",
     "kind": "sequence",
+    "id": "my-sequence",
     "isolate": "with-parameters", 
     "steps": [
         {
