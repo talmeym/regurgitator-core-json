@@ -14,10 +14,8 @@ below is an example of an xml configuration file for regurgitator:
     "id": "my-sequence",
     "steps": [
         { 
-            "kind": 
-            "create-parameter", 
-            "id": 
-            "my-step-1", 
+            "kind": "create-parameter", 
+            "id": "my-step-1", 
             "name": "response", 
             "value": "this is the response" 
         },
