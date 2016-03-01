@@ -1,5 +1,32 @@
 # regurgitator-core-config-json
-Regurgitator is a simple extendable processing engine, ideal for regurgitating canned or clever response to incoming requests. This component allows the configuration of the core framework using json.
+
+regurgitator is a modular, light-weight, extendable java-based processing framework designed to 'regurgitate' canned or clever responses to incoming requests.
+
+See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
+
+## xml configuration of regurgitator core functionality
+
+below is an example of an xml configuration file for regurgitator:
+
+```json
+{
+    "kind": "sequence",
+    "id": "my-sequence",
+    "steps": [
+        {
+            "kind": "create-parameter",
+            "id": "my-step-1",
+            "name": "response",
+            "value": "this is the response"
+        },
+        {
+            "kind": "create-response",
+            "id": "my-step-1",
+            "source": "response"
+        }
+    ]
+}
+```
 
 ## steps
 
