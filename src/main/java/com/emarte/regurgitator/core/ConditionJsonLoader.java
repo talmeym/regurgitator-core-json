@@ -34,8 +34,7 @@ public class ConditionJsonLoader {
 				value = jsonObject.getString(VALUE);
 			} else {
 				JSONObject behaviourObj = (JSONObject) object;
-				String kind = behaviourObj.getString(KIND);
-				behaviour = hasConditionBehaviour(kind) ? conditionBehaviour(kind) : conditionBehaviourLoaderUtil.deriveLoader(behaviourObj).load(behaviourObj, allIds);
+				behaviour = conditionBehaviourLoaderUtil.deriveLoader(behaviourObj).load(behaviourObj, allIds);
 				value = jsonObject.getString(VALUE);
 			}
 		}
