@@ -136,7 +136,7 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 	                "source": "parameters:special",
 	                "value": "true",
 	                "behaviour": {
-	                     "kind": "equals-behaviour"
+	                     "kind": "equals"
 	                }
 	            }
 	        ]
