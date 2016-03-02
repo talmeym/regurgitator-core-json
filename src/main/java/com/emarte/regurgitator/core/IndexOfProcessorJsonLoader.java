@@ -8,11 +8,11 @@ import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalBoolean;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
 
-public class IndexOfProcessorJsonLoader implements JsonLoader<ValueProcessor> {
+public class IndexOfProcessorJsonLoader implements JsonLoader<IndexOfProcessor> {
 	private static final Log log = Log.getLog(IndexOfProcessorJsonLoader.class);
 
 	@Override
-	public ValueProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+	public IndexOfProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
 		String source = loadOptionalStr(jsonObject, SOURCE);
 		String value = loadOptionalStr(jsonObject, VALUE);
 		boolean backwards = loadOptionalBoolean(jsonObject, LAST);

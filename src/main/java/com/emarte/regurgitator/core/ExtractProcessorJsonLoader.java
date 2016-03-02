@@ -6,11 +6,11 @@ import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 
-public class ExtractProcessorJsonLoader implements JsonLoader<ValueProcessor> {
+public class ExtractProcessorJsonLoader implements JsonLoader<ExtractProcessor> {
 	private static final Log log = Log.getLog(ExtractProcessorJsonLoader.class);
 
 	@Override
-	public ValueProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+	public ExtractProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
 		log.debug("Loaded extract processor");
 		return new ExtractProcessor(jsonObject.getString(FORMAT), jsonObject.getInt(INDEX));
 	}

@@ -4,11 +4,11 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-public class SubstituteProcessorJsonLoader implements JsonLoader<ValueProcessor> {
+public class SubstituteProcessorJsonLoader implements JsonLoader<SubstituteProcessor> {
 	private static final Log log = Log.getLog(SubstituteProcessorJsonLoader.class);
 
 	@Override
-	public ValueProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+	public SubstituteProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
 		String token = jsonObject.getString(CoreConfigConstants.TOKEN);
 		String replacement = jsonObject.getString(CoreConfigConstants.REPLACEMENT);
 		log.debug("Loaded substitute processor");

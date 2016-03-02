@@ -7,11 +7,11 @@ import java.util.Set;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
 
-public class IndexProcessorJsonLoader implements JsonLoader<ValueProcessor> {
+public class IndexProcessorJsonLoader implements JsonLoader<IndexProcessor> {
 	private static final Log log = Log.getLog(IndexProcessorJsonLoader.class);
 
 	@Override
-	public ValueProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+	public IndexProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
 		String source = loadOptionalStr(jsonObject, SOURCE);
 		String value = loadOptionalStr(jsonObject, VALUE);
 		log.debug("Loaded index processor");
