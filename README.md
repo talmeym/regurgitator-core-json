@@ -128,24 +128,24 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 
 ```json
 	...
-    "rules": [
-      {
-          "step": "special-step",
-          "conditions": [
-              {
-                  "source": "parameters:special",
-                  "behaviour": {
-                      "kind": "equals",
-                      "value": "special"
-                  }
-              }
-          ]
-      }
-    ]
+        "rules": [
+	    {
+	        "step": "special-step",
+	        "conditions": [
+	            {
+	                "source": "parameters:special",
+	                "value": "true",
+	                "behaviour": {
+	                     "kind": "equals"
+	                }
+	            }
+	        ]
+	    }
+	]
 	...
 ```
 
-this allows custom condition behaviours to have attributes besides the operand (in the example above, "true") which is always the value attribute of the child object.
+this allows custom condition behaviours to have attributes besides the operand (in the example above, "true") which is always the value attribute of the condition object.
 
 there are 3 core condition behaviours:
 
