@@ -7,6 +7,7 @@ import java.util.*;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
 import static com.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
+import static com.emarte.regurgitator.core.JsonConfigConstants.KIND;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static java.util.Map.Entry;
 
@@ -27,8 +28,16 @@ public class ConditionJsonLoader {
 			value = (String) behaviourAttr.getValue();
 		} else {
 		    Object object = jsonObject.get(BEHAVIOUR);
-			behaviour = object instanceof String ? conditionBehaviour((String)object) : conditionBehaviourLoaderUtil.deriveLoader((JSONObject)object).load((JSONObject)object, allIds);
-			value = jsonObject.getString(VALUE);
+
+			if(object instanceof String) {
+				behaviour = conditionBehaviour((String)object);
+				value = jsonObject.getString(VALUE);
+			} else {
+				JSONObject behaviourObj = (JSONObject) object;
+				String kind = behaviourObj.getString(KIND);
+				behaviour = hasConditionBehaviour(kind) ? conditionBehaviour(kind) : conditionBehaviourLoaderUtil.deriveLoader(behaviourObj).load(behaviourObj, allIds);
+				value = jsonObject.getString(VALUE);
+			}
 		}
 
 		String id = loadId(jsonObject, CONDITION, allIds);
