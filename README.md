@@ -128,20 +128,20 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 
 ```json
 	...
-    "rules": [
-      {
-          "step": "special-step",
-          "conditions": [
-              {
-                  "source": "parameters:special",
-                  "behaviour": {
-                      "kind": "equals",
-                      "value": "special"
-                  }
-              }
-          ]
-      }
-    ]
+        "rules": [
+	    {
+	        "step": "special-step",
+	        "conditions": [
+	            {
+	                "source": "parameters:special",
+	                "value": "true",
+	                "behaviour": {
+	                     "kind": "equals-behaviour"
+	                }
+	            }
+	        ]
+	    }
+	]
 	...
 ```
 
