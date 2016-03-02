@@ -81,7 +81,7 @@ isolation has 4 settings:
 
 | value | meaning |
 | :--- | :--- |
-| true | child steps given new blank execution message |
-| with-parameters | child steps given new execution message with only the parameters context of the original |
-| with-session | child steps given new execution message with only the session context of the original |
-| with-parameters-and-session | child steps given new execution message with the parameters and session context of the original |
+| true | child steps given new blank message object |
+| with-parameters | child steps given new message object with only the parameters context of the original |
+| with-session | child steps given new message object with only the session context of the original |
+| with-parameters-and-session | child steps given new message object with the parameters and session context of the original |
