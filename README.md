@@ -202,9 +202,9 @@ a create-parameter creates a parameter in the message, with a type and a value
 }
 ```
 
-a create-parameter can have one of the following value sources:
+a create-parameter can have one of the following value source properties:
 
-|attribute|value source | example|
+| property | value source | example |
 |:---|:---|:---|
 | ``source`` | value drawn from a source parameter | ``request-metadata:query-param`` |
 | ``value`` | value provided explicitly | ``arg1=this,arg2=that`` |
