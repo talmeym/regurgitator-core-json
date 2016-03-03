@@ -40,17 +40,14 @@ a sequence is a step that executes a series of child steps, one after another in
 ```json
 {
     "kind": "sequence",
-    "id": "my-sequence",
     "steps": [
         {
             "kind": "create-parameter",
-            "id": "my-step-1",
             "name": "response",
             "value": "this is the response"
         },
         {
             "kind": "create-response",
-            "id": "my-step-2",
             "source": "response"
         }
     ]
@@ -62,18 +59,15 @@ by default, when each child step executes, it is passed the same message object 
 ```json
 {
     "kind": "sequence",
-    "id": "my-sequence",
     "isolate": "with-parameters", 
     "steps": [
         {
             "kind": "create-parameter",
-            "id": "my-step-1",
             "name": "response",
             "value": "this is the response"
         },
         {
             "kind": "create-response",
-            "id": "my-step-2",
             "source": "response"
         }
     ]
