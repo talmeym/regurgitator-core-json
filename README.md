@@ -28,6 +28,8 @@ below is an example of an xml configuration file for regurgitator:
 }
 ```
 
+all steps in a regurgitator configuration can be given an id attribute. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id attribute is given for a step, a system-generated one will be assigned ot it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
+
 ## steps
 
 ### sequence
