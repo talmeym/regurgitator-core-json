@@ -137,7 +137,7 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 	                "source": "parameters:xml",
 	                "value": "/rg:config/@id",
 	                "behaviour": {
-	                     "kind": "contains-xpath"
+	                     "kind": "contains-xpath",
 	                     "namespaces": {
 	                     	"rg": "http://url.com"
 	                     }
