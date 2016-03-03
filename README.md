@@ -28,9 +28,9 @@ below is an example of a json configuration file for regurgitator:
 }
 ```
 
-all objects in a regurgitator json configuration have a mandatory ``kind`` attribute. this is a mandatory identifier of the objects type and is used by regurgitator to load the correct step / construct for the object.
+all objects in a regurgitator json configuration have a mandatory ``kind`` property. this is a mandatory identifier of the objects type and is used by regurgitator to load the correct step / construct for the object.
 
-all steps in a regurgitator configuration can be given an ``id`` attribute. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id attribute is given for a step, a system-generated one will be assigned ot it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
+all steps in a regurgitator configuration can be given an ``id`` property. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id property is given for a step, a system-generated one will be assigned to it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
 
 ## steps
 
@@ -126,9 +126,9 @@ a decision executes one or more child steps, using ``rules`` and ``conditions`` 
 
 upon execution a decision evaluates all of its rules to see which pass. it then uses its ``rules behaviour`` to determines which of the passed rules should have their corresponding step executed. the default rules behaviour is ``FIRST_MATCH`` whereby the first rule that passes provides the step to be executed.
 
-each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` attribute, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour, specified as an attribute named 'equals'.
+each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` property, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour, specified as a property named 'equals'.
 
-the behaviour of a condition can also be specified as a 'behaviour' attribute, either as a string:
+the behaviour of a condition can also be specified as a 'behaviour' property, either as a string:
 
 ```json
 	...
@@ -173,7 +173,7 @@ or as an object:
 	...
 ```
 
-which allows some condition behaviours to have attributes besides the operand (in the example above, the namespaces of the xpath specified in the value attribute).
+which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified in the value property).
 
 there are 5 core condition behaviours:
 
