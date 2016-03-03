@@ -6,7 +6,7 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 ## json configuration of regurgitator
 
-below is an example of an xml configuration file for regurgitator:
+below is an example of a json configuration file for regurgitator:
 
 ```json
 {
@@ -27,6 +27,8 @@ below is an example of an xml configuration file for regurgitator:
     ]
 }
 ```
+
+all objects in a regurgitator json configuration must have a ``kind`` attribute. this provides regurgitator with an identifier of the objects type and is used to load the correct step or construct for the object.
 
 all steps in a regurgitator configuration can be given an id attribute. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id attribute is given for a step, a system-generated one will be assigned ot it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
 
