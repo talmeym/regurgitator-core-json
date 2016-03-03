@@ -124,7 +124,7 @@ upon execution a decision evaluates all of its rules to see which pass. it then 
 
 each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` attribute, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour, specified as an attribute named 'equals'.
 
-the behaviour of a condition can be specified as a 'behaviour' attribute, either as a string:
+the behaviour of a condition can also be specified as a 'behaviour' attribute, either as a string:
 
 ```json
 	...
@@ -169,7 +169,7 @@ or as an object:
 	...
 ```
 
-specifying behaviour as an object allows some condition behaviours to have attributes besides the operand (in the example above, "/rg:config/@id") which is always the value attribute of the condition object.
+which allows some condition behaviours to have attributes besides the operand (in the example above, the namespaces of the xpath specified in the value attribute).
 
 there are 5 core condition behaviours:
 
