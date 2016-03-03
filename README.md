@@ -187,3 +187,17 @@ there are 5 core condition behaviours:
 | ``exists`` | checks the parameter value exists (read as 'parameter exists') |
 | ``contains`` | checks the parameter value contains the operand |
 | ``contains-param`` | checks the parameter value contains the value of another parameter |
+
+### create-parameter
+
+a create-parameter creates a parameter in the message, with a type and a value
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "index",
+    "type": "NUMBER",
+    "value": "5",
+    "merge": "CONCAT"
+}
+```
