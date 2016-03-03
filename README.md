@@ -80,10 +80,10 @@ isolation has 4 settings:
 
 | value | child step receives |
 | :--- | :--- |
-| true | new blank message object |
-| with-parameters | new message object containing the parameters context of the original message |
-| with-session | new message object containing the session context of the original message |
-| with-parameters-and-session | new message object containing parameters and session of the original message |
+| ``true`` | new blank message object |
+| ``with-parameters`` | new message object containing the parameters context of the original message |
+| ``with-session`` | new message object containing the session context of the original message |
+| ``with-parameters-and-session`` | new message object containing parameters and session of the original message |
 
 ### decision
 
@@ -120,6 +120,14 @@ a decision executes one or more child steps, using ``rules`` and ``conditions`` 
 ```
 
 upon execution a decision evaluates all of its rules to see which pass. it then uses its ``rules behaviour`` to determines which of the passed rules should have their corresponding step executed. the default rules behaviour is ``FIRST_MATCH`` whereby the first rule that passes provides the step to be executed.
+
+there are 3 core rules behaviours:
+
+| value | behaviour |
+| :--- | :--- |
+| ``FIRST_MATCH`` | execute the step of the first rule passed |
+| ``FIRST_MATCH_ONWARDS`` | execute the step of the first rule passed, and all seqsequent steps |
+| ``ALL_MATCHES`` | execute the steps of all passed rules |
 
 each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` property, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour, specified as a property named 'equals'.
 
@@ -174,8 +182,8 @@ there are 5 core condition behaviours:
 
 | value | behaviour |
 | :--- | :--- |
-| equals | checks the parameter value equals the operand |
-| equals-param | checks the parameter value equals the value of another parameter |
-| exists | checks the parameter value exists (read as 'parameter exists') |
-| contains | checks the parameter value contains the operand |
-| contains-param | checks the parameter value contains the value of another parameter |
+| ``equals`` | checks the parameter value equals the operand |
+| ``equals-param`` | checks the parameter value equals the value of another parameter |
+| ``exists`` | checks the parameter value exists (read as 'parameter exists') |
+| ``contains`` | checks the parameter value contains the operand |
+| ``contains-param`` | checks the parameter value contains the value of another parameter |
