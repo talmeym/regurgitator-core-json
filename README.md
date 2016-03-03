@@ -21,7 +21,7 @@ below is an example of an xml configuration file for regurgitator:
         },
         { 
             "kind": "create-response", 
-            "id": "my-step-1", 
+            "id": "my-step-2", 
             "source": "response" 
         }
     ]
@@ -47,7 +47,7 @@ a sequence is a step that executes a series of child steps, one after another in
         },
         {
             "kind": "create-response",
-            "id": "my-step-1",
+            "id": "my-step-2",
             "source": "response"
         }
     ]
@@ -70,7 +70,7 @@ by default, when each child step executes, it is passed the same message object 
         },
         {
             "kind": "create-response",
-            "id": "my-step-1",
+            "id": "my-step-2",
             "source": "response"
         }
     ]
