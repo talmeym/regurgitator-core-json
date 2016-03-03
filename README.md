@@ -122,9 +122,29 @@ a decision executes one or more child steps, using ``rules`` and ``conditions`` 
 
 upon execution a decision evaluates all of its rules to see which pass. it then uses its ``rules behaviour`` to determines which of the passed rules should have their corresponding step executed. the default rules behaviour is ``FIRST_MATCH`` whereby the first rule that passes provides the step to be executed.
 
-each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` attribute, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour.
+each rule has one or more conditions that must be satisfied to make the rule pass. each condition evaluates the value of a parameter within the message object, specified by the ``source`` attribute, against an operand. each condition has a ``condition behaviour`` that dictates the manner in which the value is evaluated against the operand. the example above uses the ``equals`` condition behaviour, specified as an attribute named 'equals'.
 
-the behaviour of a condition can be specified as a behaviour object of the parent condition (as opposed to being an attribute) as shown below:
+the behaviour of a condition can be specified as a 'behaviour' attribute, either as a string:
+
+```json
+	...
+        "default-step": "default-step",
+        "rules": [
+	    {
+	        "step": "special-step",
+	        "conditions": [
+	            {
+	                "source": "parameters:special",
+	                "value": "special",
+	                "behaviour": "equals"
+	            }
+	        ]
+	    }
+	]
+	...
+```
+
+or as an object:
 
 ```json
 	...
@@ -149,7 +169,7 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 	...
 ```
 
-this allows some condition behaviours to have attributes besides the operand (in the example above, "/rg:config/@id") which is always the value attribute of the condition object.
+specifying behaviour as an object allows some condition behaviours to have attributes besides the operand (in the example above, "/rg:config/@id") which is always the value attribute of the condition object.
 
 there are 5 core condition behaviours:
 
