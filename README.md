@@ -28,9 +28,9 @@ below is an example of a json configuration file for regurgitator:
 }
 ```
 
-all objects in a regurgitator json configuration must have a ``kind`` attribute. this provides regurgitator with an identifier of the objects type and is used to load the correct step or construct for the object.
+all objects in a regurgitator json configuration have a mandatory ``kind`` attribute. this is a mandatory identifier of the objects type and is used by regurgitator to load the correct step / construct for the object.
 
-all steps in a regurgitator configuration can be given an id attribute. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id attribute is given for a step, a system-generated one will be assigned ot it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
+all steps in a regurgitator configuration can be given an ``id`` attribute. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id attribute is given for a step, a system-generated one will be assigned ot it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
 
 ## steps
 
