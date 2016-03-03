@@ -168,7 +168,7 @@ or as an object:
 	...
 ```
 
-which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified in the value property).
+which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified). if behaviour is specified in a behaviour property, the operand is specified in the value property.
 
 there are 5 core condition behaviours:
 
