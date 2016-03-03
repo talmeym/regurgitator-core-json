@@ -147,7 +147,7 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 
 this allows custom condition behaviours to have attributes besides the operand (in the example above, "true") which is always the value attribute of the condition object.
 
-there are 4 core condition behaviours:
+there are 5 core condition behaviours:
 
 | value | behaviour |
 | :--- | :--- |
