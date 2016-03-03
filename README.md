@@ -21,7 +21,6 @@ below is an example of a json configuration file for regurgitator:
         },
         { 
             "kind": "create-response", 
-            "id": "my-step-2", 
             "source": "response" 
         }
     ]
