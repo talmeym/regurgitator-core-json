@@ -27,7 +27,11 @@ below is an example of a json configuration file for regurgitator:
 }
 ```
 
+#### kind 
+
 all objects in a regurgitator json configuration have a mandatory ``kind`` property. this is a mandatory identifier of the objects type and is used by regurgitator to load the correct step / construct for the object.
+
+#### id
 
 all steps in a regurgitator configuration can be given an ``id`` property. ids can be used for identifying which step to run next (see decision, below) and therefore must be unique. if no id property is given for a step, a system-generated one will be assigned to it at load time, combining the type of the step with a 4 digit randon number, eg: ``create-parameter-6557``
 
