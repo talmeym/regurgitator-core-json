@@ -7,7 +7,6 @@ import java.util.*;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
 import static com.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
-import static com.emarte.regurgitator.core.JsonConfigConstants.KIND;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static java.util.Map.Entry;
 
@@ -19,7 +18,7 @@ public class ConditionJsonLoader {
 		String source = jsonObject.getString(SOURCE);
 		String expectation = loadOptionalStr(jsonObject, EXPECTATION);
 
-		Entry behaviourAttr = findBehaviour(jsonObject);
+		Entry behaviourAttr = getBehaviourAttribute(jsonObject);
 		ConditionBehaviour behaviour;
 		String value;
 
@@ -28,14 +27,13 @@ public class ConditionJsonLoader {
 			value = (String) behaviourAttr.getValue();
 		} else {
 		    Object object = jsonObject.get(BEHAVIOUR);
+			value = jsonObject.getString(VALUE);
 
 			if(object instanceof String) {
-				behaviour = conditionBehaviour((String)object);
-				value = jsonObject.getString(VALUE);
+				behaviour = conditionBehaviour((String) object);
 			} else {
 				JSONObject behaviourObj = (JSONObject) object;
 				behaviour = conditionBehaviourLoaderUtil.deriveLoader(behaviourObj).load(behaviourObj, allIds);
-				value = jsonObject.getString(VALUE);
 			}
 		}
 
@@ -44,7 +42,7 @@ public class ConditionJsonLoader {
 		return new Condition(id, new ContextLocation(source), value, expectation != null ? Boolean.valueOf(expectation) : true, behaviour);
 	}
 
-	private static Entry findBehaviour(JSONObject jsonObject) throws RegurgitatorException {
+	private static Entry getBehaviourAttribute(JSONObject jsonObject) throws RegurgitatorException {
 		boolean behaviourFieldFound = jsonObject.containsKey(BEHAVIOUR);
 		Set<Entry> entries = jsonObject.entrySet();
 		Set<Entry> behavioursFound = new HashSet<Entry>();
