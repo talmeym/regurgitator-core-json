@@ -147,10 +147,11 @@ the behaviour of a condition can be specified as a behaviour object of the paren
 
 this allows custom condition behaviours to have attributes besides the operand (in the example above, "true") which is always the value attribute of the condition object.
 
-there are 3 core condition behaviours:
+there are 4 core condition behaviours:
 
 | value | behaviour |
 | :--- | :--- |
 | equals | checks the parameter value equals the operand |
 | exists | checks the parameter value exists (read as 'parameter exists') |
 | contains | checks the parameter value contains the operand |
+| contains-param | checks the parameter value contains the value of another parameter |
