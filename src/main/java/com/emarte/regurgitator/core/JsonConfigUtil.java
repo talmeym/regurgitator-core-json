@@ -69,6 +69,10 @@ public class JsonConfigUtil {
 		return jsonObject.containsKey(key) ? jsonObject.getString(key) : null;
 	}
 
+	public static Integer loadOptionalInt(JSONObject jsonObject, String key) {
+		return jsonObject.containsKey(key) ? jsonObject.getInt(key) : null;
+	}
+
 	public static boolean loadOptionalBoolean(JSONObject jsonObject, String key) {
 		return jsonObject.containsKey(key) && jsonObject.getBoolean(key);
 	}
