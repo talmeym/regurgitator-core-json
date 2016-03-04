@@ -505,7 +505,7 @@ a size-processor manipulates collection parameter values, such as ``LIST_OF_STRI
 
 the optional ``as-index`` returns the size zero-indexed, eg. 3 items returning a value of 2. without this attribute, the processor can be in-lined, as shown above.
 
-```xml
+```json
 {
     "kind": "create-parameter",
     "name": "data",
