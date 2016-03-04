@@ -225,6 +225,27 @@ when using ``NUMBER`` and decimal ``DECIMAL`` parameter types, ``CONCAT`` and ``
 
 find more details on parameter types in [regurgitator-core](https://github.com/talmeym/regurgitator-core#parameter-types).
 
+to create a parameter in a particular parameter context, simple prepend your parameters name with the desired context, separated by a colon, eg: 
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "context:param-name",
+    "value": "some value"
+}
+``` 
+
+to draw a source parameter value from a particular context, use the same notation in the ``source`` property, eg: 
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "some-param",
+    "source": "context:other-param"
+}
+```
+
+
 ### build-parameter
 
 a build-parameter creates a parameter in the message, with it's value provided by a ``value-builder``
