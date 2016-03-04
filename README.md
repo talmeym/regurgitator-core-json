@@ -438,8 +438,16 @@ an index-processor manipulates collection parameter values, such as ``LIST_OF_ST
 ```json
 {
     "kind": "create-parameter",
-    "name": "the-one",
+    "name": "data",
+    "type": "LIST_OF_STRING",
     "value": "not this one,or this one,but this one",
+}
+
+{
+    "kind": "create-parameter",
+    "name": "the-one",
+    "type": "STRING",
+    "source": "data",
     "processor": {
     	"kind": "index-processor",
     	"index": "2"
@@ -456,8 +464,16 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
 ```json
 {
     "kind": "create-parameter",
-    "name": "index-of-the-one",
+    "name": "data",
+    "type": "LIST_OF_STRING",
     "value": "not this one,or this one,but this one",
+}
+
+{
+    "kind": "create-parameter",
+    "name": "index-of-the-one",
+    "type": "NUMBER",
+    "source": "data",
     "processor": {
     	"value": "but this one"
     }
@@ -465,3 +481,46 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
 ```
 
 the data value to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the data value from a parameter.
+
+### size-processor
+
+a size-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the size of the collection
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "data",
+    "type": "LIST_OF_STRING",
+    "value": "one,two,three,four",
+}
+
+{
+    "kind": "create-parameter",
+    "name": "data-size",
+    "type": "NUMBER",
+    "source": "data",
+    "processor": "size-processor"
+}
+```
+
+the optional ``as-index`` returns the size zero-indexed, eg. 3 items returning a value of 2. without this attribute, the processor can be in-lined, as shown above.
+
+```xml
+{
+    "kind": "create-parameter",
+    "name": "data",
+    "type": "LIST_OF_STRING",
+    "value": "one,two,three,four",
+}
+
+{
+    "kind": "create-parameter",
+    "name": "data-size",
+    "type": "NUMBER",
+    "source": "data",
+    "processor": {
+    	"kind": "size-processor",
+    	"as-index": "true"
+    }
+}
+```
