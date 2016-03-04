@@ -430,3 +430,38 @@ a substitute-processor manipulates ``STRING`` values, replacing occurrences of o
     }
 }
 ```
+
+### index-processor
+
+an index-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the data value at a given index, starting from zero.
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "the-one",
+    "value": "not this one,or this one,but this one",
+    "processor": {
+    	"kind": "index-processor",
+    	"index": "2"
+    }
+}
+```
+
+the index to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the index from a parameter.
+
+### index-of-processor
+
+an index-of-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the index of a given data value, starting from zero.
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "index-of-the-one",
+    "value": "not this one,or this one,but this one",
+    "processor": {
+    	"value": "but this one"
+    }
+}
+```
+
+the data value to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the data value from a parameter.
