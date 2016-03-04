@@ -224,3 +224,22 @@ there are 4 core conflict policies available:
 when using ``NUMBER`` and decimal ``DECIMAL`` parameter types, ``CONCAT`` and ``REMOVE`` conflict policies behave as addition and subtraction operators. when collection-based parameter types are used, ``CONCAT`` and ``REMOVE`` behaves like java collection ``add-all`` and ``remove-all`` operations, respectively.
 
 find more details on parameter types in [regurgitator-core](https://github.com/talmeym/regurgitator-core#parameter-types).
+
+### build-parameter
+
+a build-parameter creates a parameter in the message, with it's value provided by a ``value-builder``
+
+```json
+{
+    "kind": "build-parameter",
+    "name": "response",
+    "type": "STRING",
+    "merge": "CONCAT",
+    "builder": {
+        "kind": "freemarker-builder",
+        "file": "classpath:/response_file.ftl"
+    }
+}
+```
+
+as with create-parameter above, a build-parameter can have optional ``merge`` and ``type`` properties, their defaults being ``REPLACE`` and ``STRING``, respectively.
