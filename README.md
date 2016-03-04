@@ -405,7 +405,7 @@ an extract-processor extracts a value from another, using the java.text.MessageF
 {
     "kind": "create-parameter",
     "name": "customer-id",
-    "source": "request-metadata:query-string"
+    "source": "request-metadata:query-string",
     "processor": {
     	"kind": "extract-processor",
     	"format": "order={0}&amp;customer={1}",
