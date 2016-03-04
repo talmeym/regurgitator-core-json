@@ -396,3 +396,20 @@ a uuid-generator generates a uuid parameter value.
     "generator": "uuid-generator"
 }
 ```
+
+### extract-processor
+
+an extract-processor extracts a value from another, using the java.text.MessageFormat syntax.
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "customer-id",
+    "source": "request-metadata:query-string"
+    "processor": {
+    	"kind": "extract-processor",
+    	"format": "order={0}&amp;customer={1}",
+    	"index": "1"
+    }
+}
+```
