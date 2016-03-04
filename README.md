@@ -355,12 +355,19 @@ a number-generator generates a random number parameter value
 ```json
 {
     "kind": "generate-parameter",
-    "name": "param-name",
+    "name": "random-number",
     "type": "NUMBER",
     "generator": {
         "kind": "number-generator",
         "max": "1000"
     }
+}
+
+{
+    "kind": "generate-parameter",
+    "name": "unrestricted-random-number",
+    "type": "NUMBER",
+    "generator": "number-generator"
 }
 ```
 
@@ -376,8 +383,15 @@ a uuid-generator generates a uuid parameter value
     "name": "new-id",
     "type": "STRING",
     "generator": {
-        "kind": "number-generator"
+        "kind": "uuid-generator"
     }
+}
+
+{
+    "kind": "generate-parameter",
+    "name": "new-id",
+    "type": "STRING",
+    "generator": "uuid-generator"
 }
 
 ```
