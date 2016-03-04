@@ -250,12 +250,12 @@ a generate-parameter creates a parameter in the message, with it's value generat
 
 ```json
 {
-    "kind": "build-parameter",
+    "kind": "generate-parameter",
     "name": "random-number",
     "type": "NUMBER",
     "merge": "REPLACE",
-    "builder": {
-        "kind": "number-builder",
+    "generator": {
+        "kind": "number-generator",
         "max": "10"
     }
 }
