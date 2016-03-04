@@ -393,6 +393,8 @@ the ``max`` property is optional:
 }
 ```
 
+more info on ``value-generator`` [here](https://github.com/talmeym/regurgitator-core-json#generate-parameter).
+
 ### uuid-generator
 
 a uuid-generator generates a uuid parameter value.
