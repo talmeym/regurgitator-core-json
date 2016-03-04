@@ -432,6 +432,8 @@ an extract-processor extracts a value from another value, using the [java.text.M
 }
 ```
 
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
+
 ### substitute-processor
 
 a substitute-processor manipulates ``STRING`` values, replacing occurrences of one value with another.
@@ -448,6 +450,8 @@ a substitute-processor manipulates ``STRING`` values, replacing occurrences of o
     }
 }
 ```
+
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
 
 ### index-processor
 
@@ -475,6 +479,8 @@ an index-processor manipulates collection parameter values, such as ``LIST_OF_ST
 
 the index to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the index from a parameter.
 
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
+
 ### index-of-processor
 
 an index-of-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the index of a given data value, starting from zero.
@@ -500,6 +506,8 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
 
 the data value to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the data value from a parameter.
 
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
+
 ### size-processor
 
 a size-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the size of the collection
@@ -520,6 +528,8 @@ a size-processor manipulates collection parameter values, such as ``LIST_OF_STRI
     "processor": "size-processor"
 }
 ```
+
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
 
 the optional ``as-index`` property returns the size zero-indexed, eg. 3 items returning a value of 2. without this property, the processor can be in-lined, as shown above.
 
@@ -543,4 +553,4 @@ the optional ``as-index`` property returns the size zero-indexed, eg. 3 items re
 }
 ```
 
-more about ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
+more info on ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
