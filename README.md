@@ -362,7 +362,11 @@ a number-generator generates a random number parameter value
         "max": "1000"
     }
 }
+```
 
+the ``max`` property is optional:
+
+```json
 {
     "kind": "generate-parameter",
     "name": "unrestricted-random-number",
@@ -370,8 +374,6 @@ a number-generator generates a random number parameter value
     "generator": "number-generator"
 }
 ```
-
-the ``max`` property is optional.
 
 ### uuid-generator
 
@@ -393,5 +395,4 @@ a uuid-generator generates a uuid parameter value
     "type": "STRING",
     "generator": "uuid-generator"
 }
-
 ```
