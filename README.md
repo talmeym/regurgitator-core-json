@@ -324,13 +324,13 @@ having identified your session, you can store and retrieve parameters from the s
 ```json
 {
     "kind": "create-parameter",
-    "name": "session:stored-value"
+    "name": "session:stored-value",
     "value": "store this"
 }
 
 {
     "kind": "create-parameter",
-    "name": "local-parameter"
+    "name": "local-parameter",
     "source": "session:stored-value"
 }
 ```
