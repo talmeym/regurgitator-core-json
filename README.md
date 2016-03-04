@@ -399,7 +399,7 @@ a uuid-generator generates a uuid parameter value.
 
 ### extract-processor
 
-an extract-processor extracts a value from another, using the [java.text.MessageFormat](https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html) syntax.
+an extract-processor extracts a value from another value, using the [java.text.MessageFormat](https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html) syntax.
 
 ```json
 {
