@@ -542,3 +542,5 @@ the optional ``as-index`` property returns the size zero-indexed, eg. 3 items re
     }
 }
 ```
+
+more about ``value-processor` [here](https://github.com/talmeym/regurgitator-core-json#value-processors).
