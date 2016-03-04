@@ -350,7 +350,7 @@ having identified your session, you can store and retrieve parameters from the s
 
 ### number-generator
 
-a number-generator generates a random number parameter value
+a number-generator generates a random number parameter value.
 
 ```json
 {
@@ -377,7 +377,7 @@ the ``max`` property is optional:
 
 ### uuid-generator
 
-a uuid-generator generates a uuid parameter value
+a uuid-generator generates a uuid parameter value.
 
 ```json
 {
