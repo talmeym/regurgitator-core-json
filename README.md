@@ -245,6 +245,24 @@ to draw a source parameter value from a particular context, use the same notatio
 }
 ```
 
+#### value-processors
+
+all steps that create parameters (as well as ``create-response``) have the ability to include a ``value-processor``. this is extra processing that is applied to the steps value after it is built / generated / retrieved, as seen below:
+
+```json 
+{
+    "kind": "create-parameter",
+    "name": "positive-spin",
+    "value": "you are unhappy",
+    "processor": {
+    	"kind": "substitute-processor",
+    	"token": "un",
+    	"replacement": "very "
+    }
+}
+```
+
+the manner in which the value is processed depends on the processor included.
 
 ### build-parameter
 
