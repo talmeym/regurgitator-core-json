@@ -263,3 +263,26 @@ a generate-parameter creates a parameter in the message, with it's value generat
 
 as with create-parameter above, a generate-parameter can have optional ``merge`` and ``type`` properties, their defaults being ``REPLACE`` and ``STRING``, respectively.
 
+### create-response
+
+a create-response returns a response back from regurgitator via a message's ``response-callback`` mechanism. 
+
+```json
+{
+    "kind": "create-parameter",
+    "source": "parameters:response-text"
+}
+
+{
+    "kind": "create-parameter",
+    "value": "<xml>this is the response</xml>"
+}
+
+{
+    "kind": "create-parameter",
+    "file": "classpath:/canned_response.xml"
+}
+```
+a create-response can have the same value sources as create-parameter, ``source``, ``value``, or ``file``. 
+
+regurgitator can be configured to return as many responses as is desired, but that may be incompatible with some single request / response usages, such as over [http](https://github.com/talmeym/regurgitator-extensions-web#regurgitator-over-http).
