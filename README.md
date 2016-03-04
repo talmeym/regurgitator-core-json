@@ -515,7 +515,7 @@ the optional ``as-index`` returns the size zero-indexed, eg. 3 items returning a
 
 {
     "kind": "create-parameter",
-    "name": "data-size",
+    "name": "four",
     "type": "NUMBER",
     "source": "data",
     "processor": {
