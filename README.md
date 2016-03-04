@@ -284,6 +284,17 @@ a generate-parameter creates a parameter in the message, with it's value generat
 
 as with create-parameter above, a generate-parameter can have optional ``merge`` and ``type`` properties, their defaults being ``REPLACE`` and ``STRING``, respectively.
 
+generators that require no configuration can be specified through a string property, rather than as an object, eg:
+
+```json
+{
+    "kind": "generate-parameter",
+    "name": "new-id",
+    "type": "STRING",
+    "generator": "uuid-generator"
+}
+```
+
 ### create-response
 
 a create-response returns a response back from regurgitator via a message's ``response-callback`` mechanism. 
