@@ -413,3 +413,20 @@ an extract-processor extracts a value from another value, using the [java.text.M
     }
 }
 ```
+
+### substitute-processor
+
+a substitute-processor manipulates ``STRING`` values, replacing occurrences of one value with another.
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "positive-spin",
+    "value": "you are unhappy",
+    "processor": {
+    	"kind": "substitute-processor",
+    	"token": "un",
+    	"replacement": "very "
+    }
+}
+```
