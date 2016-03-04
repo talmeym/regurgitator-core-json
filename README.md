@@ -334,3 +334,39 @@ having identified your session, you can store and retrieve parameters from the s
     "source": "session:stored-value"
 }
 ```
+
+## core constructs in json
+
+### number-generator
+
+a number-generator generates a random number parameter value
+
+```json
+{
+    "kind": "generate-parameter",
+    "name": "param-name",
+    "type": "NUMBER",
+    "generator": {
+        "kind": "number-generator",
+        "max": "1000"
+    }
+}
+```
+
+the ``max`` property is optional.
+
+### uuid-generator
+
+a uuid-generator generates a uuid parameter value
+
+```json
+{
+    "kind": "generate-parameter",
+    "name": "new-id",
+    "type": "STRING",
+    "generator": {
+        "kind": "number-generator"
+    }
+}
+
+```
