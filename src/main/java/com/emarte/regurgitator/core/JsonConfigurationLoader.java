@@ -8,7 +8,7 @@ import java.util.*;
 import static net.sf.json.JSONObject.fromObject;
 
 public class JsonConfigurationLoader implements ConfigurationLoader {
-	private static JsonLoaderUtil<SequenceJsonLoader> loaderUtil = new JsonLoaderUtil<SequenceJsonLoader>();
+	private static JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
 	public Step load(InputStream input) throws RegurgitatorException {
 		try {
