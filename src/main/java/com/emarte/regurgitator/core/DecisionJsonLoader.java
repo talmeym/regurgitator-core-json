@@ -7,10 +7,11 @@ import java.util.*;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.rulesBehaviour;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class DecisionJsonLoader implements JsonLoader<Step> {
-	private static final Log log = Log.getLog(DecisionJsonLoader.class);
+	private static final Log log = getLog(DecisionJsonLoader.class);
 
 	private static final JsonLoaderUtil<JsonLoader<Step>> stepLoaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 	private static final JsonLoaderUtil<JsonLoader<RulesBehaviour>> rulesBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<RulesBehaviour>>();

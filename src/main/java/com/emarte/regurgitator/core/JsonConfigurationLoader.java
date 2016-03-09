@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import net.sf.json.JSONObject;
 
 import java.io.InputStream;
-import java.util.*;
+import java.util.HashSet;
 
 import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static net.sf.json.JSONObject.fromObject;

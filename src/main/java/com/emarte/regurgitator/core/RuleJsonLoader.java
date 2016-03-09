@@ -7,9 +7,10 @@ import java.util.*;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigConstants.CONDITIONS;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class RuleJsonLoader {
-    private static final Log log = Log.getLog(RuleJsonLoader.class);
+    private static final Log log = getLog(RuleJsonLoader.class);
 
 	public static Rule load(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
 		List<Condition> conditions = new ArrayList<Condition>();

@@ -4,10 +4,10 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.MAX;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class UuidGeneratorJsonLoader implements JsonLoader<ValueGenerator> {
-	private static final Log log = Log.getLog(UuidGeneratorJsonLoader.class);
+	private static final Log log = getLog(UuidGeneratorJsonLoader.class);
 
 	@Override
 	public UuidGenerator load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

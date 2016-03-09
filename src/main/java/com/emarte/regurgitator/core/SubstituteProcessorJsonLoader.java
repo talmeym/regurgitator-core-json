@@ -4,8 +4,10 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 public class SubstituteProcessorJsonLoader implements JsonLoader<SubstituteProcessor> {
-	private static final Log log = Log.getLog(SubstituteProcessorJsonLoader.class);
+	private static final Log log = getLog(SubstituteProcessorJsonLoader.class);
 
 	@Override
 	public SubstituteProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

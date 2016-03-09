@@ -4,11 +4,12 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.*;
-import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.CoreConfigConstants.AS_INDEX;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalBoolean;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SizeProcessorJsonLoader implements JsonLoader<SizeProcessor> {
-	private static final Log log = Log.getLog(SizeProcessorJsonLoader.class);
+	private static final Log log = getLog(SizeProcessorJsonLoader.class);
 
 	@Override
 	public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

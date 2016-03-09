@@ -4,12 +4,12 @@ import net.sf.json.*;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.ISOLATE;
-import static com.emarte.regurgitator.core.CoreConfigConstants.STEPS;
+import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceJsonLoader implements JsonLoader<Step> {
-    private static final Log log = Log.getLog(SequenceJsonLoader.class);
+    private static final Log log = getLog(SequenceJsonLoader.class);
     private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
 	@Override

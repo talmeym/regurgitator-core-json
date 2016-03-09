@@ -7,9 +7,10 @@ import java.util.Set;
 import static com.emarte.regurgitator.core.CoreConfigConstants.BUILDER;
 import static com.emarte.regurgitator.core.EntityLookup.valueBuilder;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class BuildParameterJsonLoader implements JsonLoader<Step> {
-    private static final Log log = Log.getLog(BuildParameterJsonLoader.class);
+    private static final Log log = getLog(BuildParameterJsonLoader.class);
     private static final JsonLoaderUtil<JsonLoader<ValueBuilder>> builderLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueBuilder>>();
 
 	@Override

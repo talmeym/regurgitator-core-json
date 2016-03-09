@@ -10,7 +10,7 @@ public class AbstractJsonPackageMap implements JsonPackageMap {
 	}
 
 	@Override
-	public String getPackageForKind(String kind) {
+	public final String getPackageForKind(String kind) {
 		for(List<String> kinds: PACKAGE_TYPES.keySet()) {
 			if(kinds.contains(kind)) {
 				return PACKAGE_TYPES.get(kinds);

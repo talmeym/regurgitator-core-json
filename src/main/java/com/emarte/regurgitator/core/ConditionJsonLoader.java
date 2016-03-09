@@ -1,17 +1,17 @@
 package com.emarte.regurgitator.core;
 
-import net.sf.json.*;
+import net.sf.json.JSONObject;
 
 import java.util.*;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
-import static com.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
-import static com.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
+import static com.emarte.regurgitator.core.EntityLookup.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 import static java.util.Map.Entry;
 
 public class ConditionJsonLoader {
-	private static final Log log = Log.getLog(ConditionJsonLoader.class);
+	private static final Log log = getLog(ConditionJsonLoader.class);
 	private static final JsonLoaderUtil<JsonLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<ConditionBehaviour>>();
 
 	public static Condition load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

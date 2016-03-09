@@ -6,9 +6,10 @@ import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.SOURCE;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class IdentifySessionJsonLoader implements JsonLoader<Step> {
-    private static final Log log = Log.getLog(IdentifySessionJsonLoader.class);
+    private static final Log log = getLog(IdentifySessionJsonLoader.class);
 
 	@Override
 	public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

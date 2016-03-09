@@ -5,9 +5,10 @@ import net.sf.json.JSONObject;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceRefJsonLoader implements JsonLoader<Step> {
-	private static final Log log = Log.getLog(SequenceRefJsonLoader.class);
+	private static final Log log = getLog(SequenceRefJsonLoader.class);
 
 	@Override
 	public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
