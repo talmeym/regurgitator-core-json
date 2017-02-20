@@ -20,7 +20,7 @@ public class GenerateParameterJsonLoader implements JsonLoader<Step> {
 		ValueGenerator generator = generatorObj instanceof String ? valueGenerator(stringify(generatorObj)) : generatorLoaderUtil.deriveLoader((JSONObject) generatorObj).load((JSONObject) generatorObj, allIds);
 		ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
 		String id = loadId(jsonObject, allIds);
-		log.debug("Loaded generate parameter extractor '" + id + "'");
+		log.debug("Loaded generate parameter '" + id + "'");
 		return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processor);
 	}
 }

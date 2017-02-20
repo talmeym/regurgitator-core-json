@@ -19,7 +19,7 @@ public class BuildParameterJsonLoader implements JsonLoader<Step> {
 		ValueBuilder valueBuilder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
 		ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
 		String id = loadId(jsonObject, allIds);
-		log.debug("Loaded built parameter extractor '" + id + '\'');
+		log.debug("Loaded build parameter '" + id + '\'');
 		return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processor);
 	}
 }
