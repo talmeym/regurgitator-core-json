@@ -503,6 +503,7 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
     "type": "NUMBER",
     "source": "data",
     "processor": {
+        "kind": "index-of-processor",
     	"value": "but this one"
     }
 }
