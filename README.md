@@ -319,17 +319,17 @@ a create-response returns a response back from regurgitator via a message's ``re
 
 ```json
 {
-    "kind": "create-parameter",
+    "kind": "create-response",
     "source": "parameters:response-text"
 }
 
 {
-    "kind": "create-parameter",
+    "kind": "create-response",
     "value": "<xml>this is the response</xml>"
 }
 
 {
-    "kind": "create-parameter",
+    "kind": "create-response",
     "file": "classpath:/canned_response.xml"
 }
 ```
