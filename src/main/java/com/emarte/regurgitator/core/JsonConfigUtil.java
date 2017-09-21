@@ -11,7 +11,8 @@ import static com.emarte.regurgitator.core.EntityLookup.*;
 import static com.emarte.regurgitator.core.JsonConfigConstants.KIND;
 
 public class JsonConfigUtil {
-	private static JsonLoaderUtil<JsonLoader<ValueProcessor>> processorLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueProcessor>>();
+	private static final JsonLoaderUtil<JsonLoader<ValueProcessor>> processorLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueProcessor>>();
+	private static final Random RANDOM = new Random();
 
 	public static String loadJsonType(JSONObject jsonObject) throws RegurgitatorException {
 		if(jsonObject.containsKey(KIND)) {
@@ -22,7 +23,7 @@ public class JsonConfigUtil {
 	}
 
 	public static String loadId(JSONObject jsonObject, Set<Object> ids) throws RegurgitatorException {
-		String id = jsonObject.containsKey(ID) ? jsonObject.getString(ID) : loadJsonType(jsonObject) + "-" + new Random().nextInt(100000);
+		String id = jsonObject.containsKey(ID) ? jsonObject.getString(ID) : loadJsonType(jsonObject) + "-" + RANDOM.nextInt(100000);
 
 		if (!ids.add(id)) {
 			throw new RegurgitatorException("Duplicate id: " + id);
