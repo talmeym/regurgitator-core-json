@@ -5,6 +5,8 @@ import net.sf.json.JSONObject;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryInt;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryStr;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class ExtractProcessorJsonLoader implements JsonLoader<ExtractProcessor> {
@@ -13,6 +15,6 @@ public class ExtractProcessorJsonLoader implements JsonLoader<ExtractProcessor> 
     @Override
     public ExtractProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         log.debug("Loaded extract processor");
-        return new ExtractProcessor(jsonObject.getString(FORMAT), jsonObject.getInt(INDEX));
+        return new ExtractProcessor(loadMandatoryStr(jsonObject, FORMAT), loadMandatoryInt(jsonObject, INDEX));
     }
 }

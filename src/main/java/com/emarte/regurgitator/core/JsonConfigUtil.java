@@ -74,6 +74,10 @@ public class JsonConfigUtil {
         return jsonObject.containsKey(key) && jsonObject.getBoolean(key);
     }
 
+    public static Object loadOptional(JSONObject jsonObject, String key) {
+        return jsonObject.containsKey(key) ? jsonObject.get(key) : null;
+    }
+
     public static String loadMandatoryStr(JSONObject jsonObject, String key) throws RegurgitatorException {
         if(jsonObject.containsKey(key)) {
             return jsonObject.getString(key);
@@ -82,8 +86,12 @@ public class JsonConfigUtil {
         throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
-    public static Object loadOptional(JSONObject jsonObject, String key) {
-        return jsonObject.containsKey(key) ? jsonObject.get(key) : null;
+    public static int loadMandatoryInt(JSONObject jsonObject, String key) throws RegurgitatorException {
+        if(jsonObject.containsKey(key)) {
+            return jsonObject.getInt(key);
+        }
+
+        throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
     public static Object loadMandatory(JSONObject jsonObject, String key) throws RegurgitatorException {

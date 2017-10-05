@@ -14,7 +14,6 @@ class RuleJsonLoader {
 
     public static Rule load(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
         List<Condition> conditions = new ArrayList<Condition>();
-
         JSONArray jsonArray = (JSONArray) jsonObject.get(CONDITIONS);
 
         for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
