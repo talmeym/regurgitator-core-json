@@ -9,14 +9,14 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class IndexOfProcessorJsonLoader implements JsonLoader<IndexOfProcessor> {
-	private static final Log log = getLog(IndexOfProcessorJsonLoader.class);
+    private static final Log log = getLog(IndexOfProcessorJsonLoader.class);
 
-	@Override
-	public IndexOfProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		String source = loadOptionalStr(jsonObject, SOURCE);
-		String value = loadOptionalStr(jsonObject, VALUE);
-		boolean backwards = loadOptionalBoolean(jsonObject, LAST);
-		log.debug("Loaded index of processor");
-		return new IndexOfProcessor(new ValueSource(source != null ? new ContextLocation(source) : null, value), backwards);
-	}
+    @Override
+    public IndexOfProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        String source = loadOptionalStr(jsonObject, SOURCE);
+        String value = loadOptionalStr(jsonObject, VALUE);
+        boolean backwards = loadOptionalBoolean(jsonObject, LAST);
+        log.debug("Loaded index of processor");
+        return new IndexOfProcessor(new ValueSource(source != null ? new ContextLocation(source) : null, value), backwards);
+    }
 }

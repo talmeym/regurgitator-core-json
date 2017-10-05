@@ -9,13 +9,13 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalBoolean;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SizeProcessorJsonLoader implements JsonLoader<SizeProcessor> {
-	private static final Log log = getLog(SizeProcessorJsonLoader.class);
+    private static final Log log = getLog(SizeProcessorJsonLoader.class);
 
-	@Override
-	public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		boolean lastIndex = loadOptionalBoolean(jsonObject, AS_INDEX);
+    @Override
+    public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        boolean lastIndex = loadOptionalBoolean(jsonObject, AS_INDEX);
 
-		log.debug("Loaded size processor");
-		return new SizeProcessor(lastIndex);
-	}
+        log.debug("Loaded size processor");
+        return new SizeProcessor(lastIndex);
+    }
 }

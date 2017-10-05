@@ -13,13 +13,13 @@ public class BuildParameterJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(BuildParameterJsonLoader.class);
     private static final JsonLoaderUtil<JsonLoader<ValueBuilder>> builderLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueBuilder>>();
 
-	@Override
-	public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		Object builderObj = loadMandatory(jsonObject, BUILDER);
-		ValueBuilder valueBuilder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
-		ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
-		String id = loadId(jsonObject, allIds);
-		log.debug("Loaded build parameter '" + id + '\'');
-		return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processor);
-	}
+    @Override
+    public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        Object builderObj = loadMandatory(jsonObject, BUILDER);
+        ValueBuilder valueBuilder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
+        ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
+        String id = loadId(jsonObject, allIds);
+            log.debug("Loaded build parameter '{}'", id);
+        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processor);
+    }
 }

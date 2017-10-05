@@ -9,14 +9,14 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class CreateParameterJsonLoader extends CreateParameterLoader implements JsonLoader<Step> {
-	private static final Log log = getLog(CreateParameterJsonLoader.class);
+    private static final Log log = getLog(CreateParameterJsonLoader.class);
 
-	@Override
-	public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		String source = loadOptionalStr(jsonObject, SOURCE);
-		String value = loadOptionalStr(jsonObject, VALUE);
-		String file = loadOptionalStr(jsonObject, FILE);
-		ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
-		return buildCreateParameter(loadId(jsonObject, allIds), loadPrototype(jsonObject), loadContext(jsonObject), source, value, file, processor, log);
-	}
+    @Override
+    public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        String source = loadOptionalStr(jsonObject, SOURCE);
+        String value = loadOptionalStr(jsonObject, VALUE);
+        String file = loadOptionalStr(jsonObject, FILE);
+        ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
+        return buildCreateParameter(loadId(jsonObject, allIds), loadPrototype(jsonObject), loadContext(jsonObject), source, value, file, processor, log);
+    }
 }

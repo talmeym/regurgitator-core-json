@@ -9,11 +9,11 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalInt;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class NumberGeneratorJsonLoader implements JsonLoader<ValueGenerator> {
-	private static final Log log = getLog(NumberGeneratorJsonLoader.class);
+    private static final Log log = getLog(NumberGeneratorJsonLoader.class);
 
-	@Override
-	public NumberGenerator load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		log.debug("Loaded number generator");
-		return new NumberGenerator(loadOptionalInt(jsonObject, MAX));
-	}
+    @Override
+    public NumberGenerator load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        log.debug("Loaded number generator");
+        return new NumberGenerator(loadOptionalInt(jsonObject, MAX));
+    }
 }
