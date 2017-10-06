@@ -13,7 +13,7 @@ import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static net.sf.json.JSONObject.fromObject;
 
 class JsonConfigurationLoader implements ConfigurationLoader {
-    private static JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
     public Step load(InputStream input) throws RegurgitatorException {
         try {
