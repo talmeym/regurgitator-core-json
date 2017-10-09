@@ -134,46 +134,46 @@ each rule has one or more conditions that must be satisfied to make the rule pas
 the behaviour of a condition can also be specified as a 'behaviour' property, either as a string:
 
 ```json
-	...
+    ...
         "default-step": "default-step",
         "rules": [
-	    {
-	        "step": "special-step",
-	        "conditions": [
-	            {
-	                "source": "parameters:special",
-	                "value": "special",
-	                "behaviour": "equals"
-	            }
-	        ]
-	    }
-	]
-	...
+        {
+            "step": "special-step",
+            "conditions": [
+                {
+                    "source": "parameters:special",
+                    "value": "special",
+                    "behaviour": "equals"
+                }
+            ]
+        }
+    ]
+    ...
 ```
 
 or as an object:
 
 ```json
-	...
+    ...
         "default-step": "no-id-found",
         "rules": [
-	    {
-	        "step": "found-id",
-	        "conditions": [
-	            {
-	                "source": "parameters:xml",
-	                "value": "/rg:config/@id",
-	                "behaviour": {
-	                     "kind": "contains-xpath",
-	                     "namespaces": {
-	                     	"rg": "http://url.com"
-	                     }
-	                }
-	            }
-	        ]
-	    }
-	]
-	...
+        {
+            "step": "found-id",
+            "conditions": [
+                {
+                    "source": "parameters:xml",
+                    "value": "/rg:config/@id",
+                    "behaviour": {
+                         "kind": "contains-xpath",
+                         "namespaces": {
+                             "rg": "http://url.com"
+                         }
+                    }
+                }
+            ]
+        }
+    ]
+    ...
 ```
 
 which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified). if behaviour is specified in a behaviour property, the operand is specified in the value property.
@@ -255,9 +255,9 @@ all steps that create parameters (as well as ``create-response``) have the abili
     "name": "positive-spin",
     "value": "you are unhappy",
     "processor": {
-    	"kind": "substitute-processor",
-    	"token": "un",
-    	"replacement": "very "
+        "kind": "substitute-processor",
+        "token": "un",
+        "replacement": "very "
     }
 }
 ```
@@ -429,9 +429,9 @@ an extract-processor extracts a value from another value, using the [java.text.M
     "name": "customer-id",
     "source": "request-metadata:query-string",
     "processor": {
-    	"kind": "extract-processor",
-    	"format": "order={0}&amp;customer={1}",
-    	"index": "1"
+        "kind": "extract-processor",
+        "format": "order={0}&amp;customer={1}",
+        "index": "1"
     }
 }
 ```
@@ -448,9 +448,9 @@ a substitute-processor manipulates ``STRING`` values, replacing occurrences of o
     "name": "positive-spin",
     "value": "you are unhappy",
     "processor": {
-    	"kind": "substitute-processor",
-    	"token": "un",
-    	"replacement": "very "
+        "kind": "substitute-processor",
+        "token": "un",
+        "replacement": "very "
     }
 }
 ```
@@ -475,8 +475,8 @@ an index-processor manipulates collection parameter values, such as ``LIST_OF_ST
     "type": "STRING",
     "source": "data",
     "processor": {
-    	"kind": "index-processor",
-    	"index": "2"
+        "kind": "index-processor",
+        "index": "2"
     }
 }
 ```
@@ -504,7 +504,7 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
     "source": "data",
     "processor": {
         "kind": "index-of-processor",
-    	"value": "but this one"
+        "value": "but this one"
     }
 }
 ```
@@ -550,8 +550,8 @@ the optional ``as-index`` property returns the size zero-indexed, eg. 3 items re
     "type": "NUMBER",
     "source": "data",
     "processor": {
-    	"kind": "size-processor",
-    	"as-index": "true"
+        "kind": "size-processor",
+        "as-index": "true"
     }
 }
 ```
