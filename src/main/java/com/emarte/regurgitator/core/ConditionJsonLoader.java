@@ -6,11 +6,14 @@ package com.emarte.regurgitator.core;
 
 import net.sf.json.JSONObject;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
-import static com.emarte.regurgitator.core.EntityLookup.*;
-import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
+import static com.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
 import static com.emarte.regurgitator.core.Log.getLog;
 import static java.util.Map.Entry;
 

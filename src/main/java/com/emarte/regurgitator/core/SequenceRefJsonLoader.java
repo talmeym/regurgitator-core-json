@@ -8,7 +8,8 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.*;
+import static com.emarte.regurgitator.core.CoreConfigConstants.FILE;
+import static com.emarte.regurgitator.core.CoreConfigConstants.ID;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceRefJsonLoader implements JsonLoader<Step> {

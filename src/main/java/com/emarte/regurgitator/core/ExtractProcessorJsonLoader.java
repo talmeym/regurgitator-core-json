@@ -8,7 +8,8 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.*;
+import static com.emarte.regurgitator.core.CoreConfigConstants.FORMAT;
+import static com.emarte.regurgitator.core.CoreConfigConstants.INDEX;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryInt;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryStr;
 import static com.emarte.regurgitator.core.Log.getLog;

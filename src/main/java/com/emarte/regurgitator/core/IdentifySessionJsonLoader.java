@@ -8,8 +8,10 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.*;
-import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.CoreConfigConstants.SOURCE;
+import static com.emarte.regurgitator.core.CoreConfigConstants.VALUE;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class IdentifySessionJsonLoader extends IdentifySessionLoader implements JsonLoader<Step> {

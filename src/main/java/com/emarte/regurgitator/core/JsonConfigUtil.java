@@ -4,14 +4,17 @@
  */
 package com.emarte.regurgitator.core;
 
-import net.sf.json.*;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
-import java.util.*;
+import java.util.Random;
+import java.util.Set;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static com.emarte.regurgitator.core.EntityLookup.*;
+import static com.emarte.regurgitator.core.EntityLookup.parameterType;
+import static com.emarte.regurgitator.core.EntityLookup.valueProcessor;
 import static com.emarte.regurgitator.core.JsonConfigConstants.KIND;
 
 public class JsonConfigUtil {
