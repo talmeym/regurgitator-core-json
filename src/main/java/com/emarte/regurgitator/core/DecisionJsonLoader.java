@@ -12,6 +12,7 @@ import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.rulesBehaviour;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
+import static com.emarte.regurgitator.core.RuleJsonLoader.loadRule;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class DecisionJsonLoader implements JsonLoader<Step> {
@@ -46,7 +47,7 @@ public class DecisionJsonLoader implements JsonLoader<Step> {
         JSONArray jsonArray = jsonObject.getJSONArray(RULES);
 
         for (Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
-            rules.add(RuleJsonLoader.load((JSONObject) iterator.next(), stepIds, allIds));
+            rules.add(loadRule((JSONObject) iterator.next(), stepIds, allIds));
         }
         return rules;
     }

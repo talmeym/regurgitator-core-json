@@ -16,7 +16,7 @@ import static com.emarte.regurgitator.core.Log.getLog;
 class RuleJsonLoader {
     private static final Log log = getLog(RuleJsonLoader.class);
 
-    public static Rule load(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
+    public static Rule loadRule(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
         List<Condition> conditions = new ArrayList<Condition>();
         JSONArray jsonArray = (JSONArray) jsonObject.get(CONDITIONS);
 

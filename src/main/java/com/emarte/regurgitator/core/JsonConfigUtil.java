@@ -106,28 +106,8 @@ public class JsonConfigUtil {
         throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
-    public static JSONObject loadOptionalObj(JSONObject jsonObject, String key) {
-        return jsonObject.containsKey(key) ? jsonObject.getJSONObject(key) : null;
-    }
-
     public static JSONArray loadOptionalArray(JSONObject jsonObject, String key) throws RegurgitatorException {
         return jsonObject.containsKey(key) ? jsonObject.getJSONArray(key) : null;
-    }
-
-    public static JSONObject loadMandatoryObj(JSONObject jsonObject, String key) throws RegurgitatorException {
-        if(jsonObject.containsKey(key)) {
-            return jsonObject.getJSONObject(key);
-        }
-
-        throw new RegurgitatorException("Json object missing mandatory element: " + key);
-    }
-
-    public static JSONArray loadMandatoryArray(JSONObject jsonObject, String key) throws RegurgitatorException {
-        if(jsonObject.containsKey(key)) {
-            return jsonObject.getJSONArray(key);
-        }
-
-        throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
     public static ValueProcessor loadOptionalValueProcessor(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
