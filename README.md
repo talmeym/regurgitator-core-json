@@ -111,7 +111,7 @@ a decision executes one or more child steps, using ``rules`` and ``conditions`` 
             "conditions": [
                 {
                     "source": "parameters:special",
-                    "equals": "special"
+                    "equals": "true"
                 }
             ]
         }
