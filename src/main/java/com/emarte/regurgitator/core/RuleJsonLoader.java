@@ -11,7 +11,7 @@ import java.util.*;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.RULE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.STEP;
-import static com.emarte.regurgitator.core.JsonConfigConstants.CONDITIONS;
+import static com.emarte.regurgitator.core.CoreConfigConstants.CONDITIONS;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
 import static com.emarte.regurgitator.core.Log.getLog;
 
