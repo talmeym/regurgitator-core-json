@@ -77,7 +77,11 @@ public class JsonConfigUtil {
         return jsonObject.containsKey(key) ? jsonObject.getInt(key) : null;
     }
 
-    public static boolean loadOptionalBoolean(JSONObject jsonObject, String key) {
+    public static Long loadOptionalLong(JSONObject jsonObject, String key) {
+        return jsonObject.containsKey(key) ? jsonObject.getLong(key) : null;
+    }
+
+    public static boolean loadOptionalBool(JSONObject jsonObject, String key) {
         return jsonObject.containsKey(key) && jsonObject.getBoolean(key);
     }
 

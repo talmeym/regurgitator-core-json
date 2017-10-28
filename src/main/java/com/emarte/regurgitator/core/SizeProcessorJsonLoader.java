@@ -9,7 +9,7 @@ import net.sf.json.JSONObject;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.AS_INDEX;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalBoolean;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalBool;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SizeProcessorJsonLoader implements JsonLoader<SizeProcessor> {
@@ -17,7 +17,7 @@ public class SizeProcessorJsonLoader implements JsonLoader<SizeProcessor> {
 
     @Override
     public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        boolean lastIndex = loadOptionalBoolean(jsonObject, AS_INDEX);
+        boolean lastIndex = loadOptionalBool(jsonObject, AS_INDEX);
         log.debug("Loaded size processor");
         return new SizeProcessor(lastIndex);
     }
