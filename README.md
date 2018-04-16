@@ -178,7 +178,7 @@ or as an object:
 
 which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified). if behaviour is specified in a behaviour property, the operand is specified in the value property.
 
-there are 5 core condition behaviours:
+there are 6 core condition behaviours:
 
 | value | behaviour |
 | :--- | :--- |
@@ -187,6 +187,7 @@ there are 5 core condition behaviours:
 | ``exists`` | checks the parameter value exists (read as 'parameter exists') |
 | ``contains`` | checks the parameter value contains the operand |
 | ``contains-param`` | checks the parameter value contains the value of another parameter |
+| ``matches`` | checks the parameter values matches a regex |
 
 ### create-parameter
 
