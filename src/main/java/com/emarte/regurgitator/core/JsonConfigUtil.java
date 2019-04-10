@@ -7,8 +7,7 @@ package com.emarte.regurgitator.core;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
@@ -113,12 +112,27 @@ public class JsonConfigUtil {
         throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
-    public static JSONArray loadOptionalArray(JSONObject jsonObject, String key) throws RegurgitatorException {
+    public static JSONArray loadOptionalArray(JSONObject jsonObject, String key) {
         return jsonObject.containsKey(key) ? jsonObject.getJSONArray(key) : null;
     }
 
-    public static ValueProcessor loadOptionalValueProcessor(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public static List<ValueProcessor> loadOptionalValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        List<ValueProcessor> processors = new ArrayList<ValueProcessor>();
         Object processorObj = jsonObject.get(PROCESSOR);
-        return processorObj == null ? null : processorObj instanceof String ? valueProcessor((String) processorObj) : processorLoaderUtil.deriveLoader((JSONObject)processorObj).load((JSONObject)processorObj, allIds);
+
+        if(processorObj instanceof JSONArray) {
+            JSONArray processorObjs = (JSONArray) processorObj;
+
+            for(Iterator iterator = processorObjs.iterator(); iterator.hasNext(); ) {
+                JSONObject object = (JSONObject) iterator.next();
+                processors.add(processorLoaderUtil.deriveLoader(object).load(object, allIds));
+            }
+        } else if(processorObj instanceof String) {
+            processors.add(valueProcessor((String) processorObj));
+        } else if(processorObj != null) {
+            processors.add(processorLoaderUtil.deriveLoader((JSONObject) processorObj).load((JSONObject) processorObj, allIds));
+        }
+
+        return processors;
     }
 }

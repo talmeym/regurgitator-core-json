@@ -6,6 +6,7 @@ package com.emarte.regurgitator.core;
 
 import net.sf.json.JSONObject;
 
+import java.util.List;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.BUILDER;
@@ -21,9 +22,9 @@ public class BuildParameterJsonLoader implements JsonLoader<Step> {
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         Object builderObj = loadMandatory(jsonObject, BUILDER);
         ValueBuilder valueBuilder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
-        ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
+        List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded build parameter '{}'", id);
-        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processor);
+        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processors);
     }
 }

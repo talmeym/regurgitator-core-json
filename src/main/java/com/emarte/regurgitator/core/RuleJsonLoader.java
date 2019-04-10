@@ -7,11 +7,12 @@ package com.emarte.regurgitator.core;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-import static com.emarte.regurgitator.core.CoreConfigConstants.RULE;
-import static com.emarte.regurgitator.core.CoreConfigConstants.STEP;
-import static com.emarte.regurgitator.core.CoreConfigConstants.CONDITIONS;
+import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
 import static com.emarte.regurgitator.core.Log.getLog;
 

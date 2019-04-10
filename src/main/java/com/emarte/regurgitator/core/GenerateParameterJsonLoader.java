@@ -6,6 +6,7 @@ package com.emarte.regurgitator.core;
 
 import net.sf.json.JSONObject;
 
+import java.util.List;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.GENERATOR;
@@ -22,9 +23,9 @@ public class GenerateParameterJsonLoader implements JsonLoader<Step> {
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         Object generatorObj = loadMandatory(jsonObject, GENERATOR);
         ValueGenerator generator = generatorObj instanceof String ? valueGenerator(stringify(generatorObj)) : generatorLoaderUtil.deriveLoader((JSONObject) generatorObj).load((JSONObject) generatorObj, allIds);
-        ValueProcessor processor = loadOptionalValueProcessor(jsonObject, allIds);
+        List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded generate parameter '{}'", id);
-        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processor);
+        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processors);
     }
 }
