@@ -119,18 +119,36 @@ public class JsonConfigUtil {
     public static List<ValueProcessor> loadOptionalValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         List<ValueProcessor> processors = new ArrayList<ValueProcessor>();
         Object processorObj = jsonObject.get(PROCESSOR);
+        Object processorsObj = jsonObject.get(PROCESSORS);
 
-        if(processorObj instanceof JSONArray) {
-            JSONArray processorObjs = (JSONArray) processorObj;
+        if(processorObj != null && processorsObj != null) {
+            throw new RegurgitatorException("Only one of 'processor' or 'processors' is allowed");
+        }
 
-            for(Iterator iterator = processorObjs.iterator(); iterator.hasNext(); ) {
-                JSONObject object = (JSONObject) iterator.next();
-                processors.add(processorLoaderUtil.deriveLoader(object).load(object, allIds));
+        if(processorObj != null) {
+            if(processorObj instanceof String) {
+                processors.add(valueProcessor((String) processorObj));
+            } else if(processorObj instanceof JSONObject) {
+                JSONObject processor = (JSONObject) processorObj;
+                processors.add(processorLoaderUtil.deriveLoader(processor).load(processor, allIds));
+            } else {
+                throw new RegurgitatorException("'processor' should be a string or an object or, for an array, replaced with 'processors'");
             }
-        } else if(processorObj instanceof String) {
-            processors.add(valueProcessor((String) processorObj));
-        } else if(processorObj != null) {
-            processors.add(processorLoaderUtil.deriveLoader((JSONObject) processorObj).load((JSONObject) processorObj, allIds));
+        }
+
+        if(processorsObj != null) {
+            if(processorsObj instanceof String) {
+                for(String part: ((String)processorsObj).split(",")) {
+                    processors.add(valueProcessor(part));
+                }
+            } else if(processorsObj instanceof JSONArray) {
+                for (Object object : (JSONArray) processorsObj) {
+                    JSONObject processor = (JSONObject) object;
+                    processors.add(processorLoaderUtil.deriveLoader(processor).load(processor, allIds));
+                }
+            } else {
+                throw new RegurgitatorException("'processors' field should be an array, or replaced with 'processor'");
+            }
         }
 
         return processors;
