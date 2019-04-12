@@ -21,10 +21,10 @@ public class BuildParameterJsonLoader implements JsonLoader<Step> {
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         Object builderObj = loadMandatory(jsonObject, BUILDER);
-        ValueBuilder valueBuilder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
+        ValueBuilder builder = builderObj instanceof String ? valueBuilder((String) builderObj) : builderLoaderUtil.deriveLoader((JSONObject)builderObj).load((JSONObject) builderObj, allIds);
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded build parameter '{}'", id);
-        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), valueBuilder, processors);
+        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), builder, processors);
     }
 }
