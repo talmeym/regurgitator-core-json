@@ -4,10 +4,12 @@
  */
 package com.emarte.regurgitator.core;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.rulesBehaviour;
@@ -45,21 +47,22 @@ public class DecisionJsonLoader implements JsonLoader<Step> {
 
     private List<Rule> loadRules(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
         List<Rule> rules = new ArrayList<Rule>();
-        JSONArray jsonArray = jsonObject.getJSONArray(RULES);
 
-        for (Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
-            rules.add(loadRule((JSONObject) iterator.next(), stepIds, allIds));
+        for (Object obj : loadMandatoryArray(jsonObject, RULES)) {
+            rules.add(loadRule((JSONObject) obj, stepIds, allIds));
         }
+
         return rules;
     }
 
     private List<Step> loadSteps(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         List<Step> steps = new ArrayList<Step>();
 
-        for (Iterator iterator = jsonObject.getJSONArray(STEPS).iterator(); iterator.hasNext(); ) {
-            JSONObject object = (JSONObject) iterator.next();
+        for (Object obj : loadMandatoryArray(jsonObject, STEPS)) {
+            JSONObject object = (JSONObject) obj;
             steps.add(stepLoaderUtil.deriveLoader(object).load(object, allIds));
         }
+
         return steps;
     }
 
