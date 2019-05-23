@@ -7,7 +7,10 @@ package com.emarte.regurgitator.core;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
@@ -112,8 +115,30 @@ public class JsonConfigUtil {
         throw new RegurgitatorException("Json object missing mandatory element: " + key);
     }
 
+    public static JSONArray loadMandatoryArray(JSONObject jsonObject, String key) throws RegurgitatorException {
+        if (jsonObject.containsKey(key)) {
+            if(!(jsonObject.get(key) instanceof JSONArray)) {
+                throw new RegurgitatorException(String.format("Json object '%s' element is not an array", key));
+            }
+
+            return jsonObject.getJSONArray(key);
+        }
+
+        throw new RegurgitatorException("Json object missing mandatory array: " + key);
+    }
+
     public static JSONArray loadOptionalArray(JSONObject jsonObject, String key) {
         return jsonObject.containsKey(key) ? jsonObject.getJSONArray(key) : null;
+    }
+
+    public static List<ValueProcessor> loadMandatoryValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
+
+        if(processors != null && processors.size() > 0) {
+            return processors;
+        }
+
+        throw new RegurgitatorException("element missing mandatory processor or processors");
     }
 
     public static List<ValueProcessor> loadOptionalValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
