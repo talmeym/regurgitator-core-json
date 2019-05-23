@@ -14,8 +14,7 @@ import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.ISOLATE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.STEPS;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
+import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceJsonLoader implements JsonLoader<Step> {
@@ -25,7 +24,7 @@ public class SequenceJsonLoader implements JsonLoader<Step> {
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         List<Step> steps = new ArrayList<Step>();
-        JSONArray jsonArray = jsonObject.getJSONArray(STEPS);
+        JSONArray jsonArray = loadMandatoryArray(jsonObject, STEPS);
 
         for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
             JSONObject object = (JSONObject) iterator.next();

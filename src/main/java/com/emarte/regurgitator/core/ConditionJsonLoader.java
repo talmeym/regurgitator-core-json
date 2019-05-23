@@ -12,8 +12,7 @@ import java.util.Set;
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
 import static com.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
 import static com.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
+import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 import static java.util.Map.Entry;
 
@@ -22,7 +21,7 @@ class ConditionJsonLoader {
     private static final JsonLoaderUtil<JsonLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<ConditionBehaviour>>();
 
     public static Condition load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        String source = jsonObject.getString(SOURCE);
+        String source = loadMandatoryStr(jsonObject, SOURCE);
         String expectation = loadOptionalStr(jsonObject, EXPECTATION);
 
         Entry behaviourAttr = getBehaviourAttribute(jsonObject);
@@ -33,8 +32,8 @@ class ConditionJsonLoader {
             behaviour = conditionBehaviour((String)behaviourAttr.getKey());
             value = (String) behaviourAttr.getValue();
         } else {
-            Object object = jsonObject.get(BEHAVIOUR);
-            value = jsonObject.getString(VALUE);
+            Object object = loadMandatory(jsonObject, BEHAVIOUR);
+            value = loadMandatoryStr(jsonObject, VALUE);
 
             if(object instanceof String) {
                 behaviour = conditionBehaviour((String) object);

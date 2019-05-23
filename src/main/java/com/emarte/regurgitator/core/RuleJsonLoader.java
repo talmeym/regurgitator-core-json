@@ -4,16 +4,14 @@
  */
 package com.emarte.regurgitator.core;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.*;
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 class RuleJsonLoader {
@@ -21,14 +19,12 @@ class RuleJsonLoader {
 
     public static Rule loadRule(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
         List<Condition> conditions = new ArrayList<Condition>();
-        JSONArray jsonArray = (JSONArray) jsonObject.get(CONDITIONS);
 
-        for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
-            JSONObject object = (JSONObject) iterator.next();
-            conditions.add(ConditionJsonLoader.load(object, allIds));
+        for (Object obj : loadMandatoryArray(jsonObject, CONDITIONS)) {
+            conditions.add(ConditionJsonLoader.load((JSONObject) obj, allIds));
         }
 
-        String stepId = jsonObject.getString(STEP);
+        String stepId = loadMandatoryStr(jsonObject, STEP);
 
         if(!stepIds.contains(stepId)) {
             throw new RegurgitatorException("Error with configuration: rule step not found: " + stepId);

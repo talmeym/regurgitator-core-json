@@ -8,8 +8,10 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
+import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
 import static com.emarte.regurgitator.core.CoreConfigConstants.FILE;
 import static com.emarte.regurgitator.core.CoreConfigConstants.ID;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryStr;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceRefJsonLoader implements JsonLoader<Step> {
@@ -18,7 +20,7 @@ public class SequenceRefJsonLoader implements JsonLoader<Step> {
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         log.debug("Loading sequence ref");
-        Sequence sequence = (Sequence) ConfigurationFile.loadFile(jsonObject.getString(FILE));
+        Sequence sequence = (Sequence) loadFile(loadMandatoryStr(jsonObject, FILE));
 
         if(jsonObject.containsKey(ID)) {
             String newId = jsonObject.getString(ID);
