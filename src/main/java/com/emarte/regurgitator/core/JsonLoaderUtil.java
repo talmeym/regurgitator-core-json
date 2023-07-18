@@ -10,7 +10,7 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.loadJsonType;
 import static com.emarte.regurgitator.core.JsonPackageLookup.getPackageForType;
 import static com.emarte.regurgitator.core.StringUtil.dashesToCamelCase;
 
-public class JsonLoaderUtil<TYPE extends Loader> extends LoaderUtil<JSONObject, TYPE> {
+public class JsonLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<JSONObject, TYPE> {
 
     @Override
     public TYPE deriveLoader(JSONObject jsonObject) throws RegurgitatorException {

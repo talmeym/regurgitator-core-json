@@ -24,7 +24,7 @@ class ConditionJsonLoader {
         String source = loadMandatoryStr(jsonObject, SOURCE);
         String expectation = loadOptionalStr(jsonObject, EXPECTATION);
 
-        Entry behaviourAttr = getBehaviourAttribute(jsonObject);
+        Entry<?, ?> behaviourAttr = getBehaviourAttribute(jsonObject);
         ConditionBehaviour behaviour;
         String value;
 
@@ -45,16 +45,16 @@ class ConditionJsonLoader {
 
         String id = loadId(jsonObject, CONDITION, allIds);
         log.debug("Loaded condition '{}'", id);
-        return new Condition(id, new ContextLocation(source), value, expectation != null ? Boolean.valueOf(expectation) : true, behaviour);
+        return new Condition(id, new ContextLocation(source), value, expectation == null || Boolean.parseBoolean(expectation), behaviour);
     }
 
     @SuppressWarnings("unchecked")
-    private static Entry getBehaviourAttribute(JSONObject jsonObject) throws RegurgitatorException {
+    private static Entry<?, ?> getBehaviourAttribute(JSONObject jsonObject) throws RegurgitatorException {
         boolean behaviourFieldFound = jsonObject.containsKey(BEHAVIOUR);
-        Set<Entry> entries = jsonObject.entrySet();
-        Set<Entry> behavioursFound = new HashSet<Entry>();
+        Set<Entry<?, ?>> entries = jsonObject.entrySet();
+        Set<Entry<?, ?>> behavioursFound = new HashSet<Entry<?, ?>>();
 
-        for(Entry entry: entries) {
+        for(Entry<?, ?> entry: entries) {
             if(entry.getValue() instanceof String) {
                 if(hasConditionBehaviour((String)entry.getKey())) {
                     behavioursFound.add(entry);

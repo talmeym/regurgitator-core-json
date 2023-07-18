@@ -59,7 +59,7 @@ public class JsonConfigUtil {
         return new ContextLocation(loadMandatoryStr(jsonObject, NAME)).getName();
     }
 
-    private static ParameterType loadType(JSONObject jsonObject) throws RegurgitatorException {
+    private static ParameterType<?> loadType(JSONObject jsonObject) throws RegurgitatorException {
         return jsonObject.containsKey(TYPE) ? parameterType(jsonObject.getString(TYPE)) : STRING;
     }
 
@@ -134,7 +134,7 @@ public class JsonConfigUtil {
     public static List<ValueProcessor> loadMandatoryValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
 
-        if(processors != null && processors.size() > 0) {
+        if(processors.size() > 0) {
             return processors;
         }
 

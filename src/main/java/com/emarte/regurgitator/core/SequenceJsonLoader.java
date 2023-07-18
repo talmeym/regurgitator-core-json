@@ -26,9 +26,9 @@ public class SequenceJsonLoader implements JsonLoader<Step> {
         List<Step> steps = new ArrayList<Step>();
         JSONArray jsonArray = loadMandatoryArray(jsonObject, STEPS);
 
-        for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
-            JSONObject object = (JSONObject) iterator.next();
-            steps.add(loaderUtil.deriveLoader(object).load(object, allIds));
+        for (Object obj : jsonArray) {
+            JSONObject jsonObj = (JSONObject) obj;
+            steps.add(loaderUtil.deriveLoader(jsonObj).load(jsonObj, allIds));
         }
 
         if(steps.isEmpty()) {

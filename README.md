@@ -104,10 +104,10 @@ a decision executes one or more child steps, using ``rules`` and ``conditions`` 
             "value": "this is the special response"
         }
     ],
-    "default-step": "default-step",
+    "default-step": "default-response",
     "rules": [
         {
-            "step": "special-step",
+            "step": "special-response",
             "conditions": [
                 {
                     "source": "parameters:special",
