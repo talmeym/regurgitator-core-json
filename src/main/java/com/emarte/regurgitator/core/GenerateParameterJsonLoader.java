@@ -17,7 +17,7 @@ import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class GenerateParameterJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(GenerateParameterJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<ValueGenerator>> generatorLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueGenerator>>();
+    private static final JsonLoaderUtil<JsonLoader<ValueGenerator>> generatorLoaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

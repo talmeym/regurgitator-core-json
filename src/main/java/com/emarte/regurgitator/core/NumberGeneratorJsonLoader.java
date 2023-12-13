@@ -16,7 +16,7 @@ public class NumberGeneratorJsonLoader implements JsonLoader<ValueGenerator> {
     private static final Log log = getLog(NumberGeneratorJsonLoader.class);
 
     @Override
-    public NumberGenerator load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public NumberGenerator load(JSONObject jsonObject, Set<Object> allIds) {
         log.debug("Loaded number generator");
         return new NumberGenerator(loadOptionalInt(jsonObject, MAX));
     }

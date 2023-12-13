@@ -14,7 +14,7 @@ public class UuidGeneratorJsonLoader implements JsonLoader<ValueGenerator> {
     private static final Log log = getLog(UuidGeneratorJsonLoader.class);
 
     @Override
-    public UuidGenerator load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public UuidGenerator load(JSONObject jsonObject, Set<Object> allIds) {
         log.debug("Loaded uuid generator");
         return new UuidGenerator();
     }

@@ -13,12 +13,12 @@ import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static net.sf.json.JSONObject.fromObject;
 
 class JsonConfigurationLoader implements ConfigurationLoader {
-    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<>();
 
     public Step load(InputStream input) throws RegurgitatorException {
         try {
             JSONObject requestJson = fromObject(streamToString(input));
-            return loaderUtil.deriveLoader(requestJson).load(requestJson, new HashSet<Object>());
+            return loaderUtil.deriveLoader(requestJson).load(requestJson, new HashSet<>());
         } catch (Exception e) {
             throw new RegurgitatorException("Error loading regurgitator configuration", e);
         }

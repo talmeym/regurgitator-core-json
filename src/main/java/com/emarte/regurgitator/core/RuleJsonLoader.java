@@ -18,7 +18,7 @@ class RuleJsonLoader {
     private static final Log log = getLog(RuleJsonLoader.class);
 
     public static Rule loadRule(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
-        List<Condition> conditions = new ArrayList<Condition>();
+        List<Condition> conditions = new ArrayList<>();
 
         for (Object obj : loadMandatoryArray(jsonObject, CONDITIONS)) {
             conditions.add(ConditionJsonLoader.load((JSONObject) obj, allIds));

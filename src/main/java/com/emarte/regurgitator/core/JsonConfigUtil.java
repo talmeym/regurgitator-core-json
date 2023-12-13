@@ -20,7 +20,7 @@ import static com.emarte.regurgitator.core.EntityLookup.valueProcessor;
 import static com.emarte.regurgitator.core.JsonConfigConstants.KIND;
 
 public class JsonConfigUtil {
-    private static final JsonLoaderUtil<JsonLoader<ValueProcessor>> processorLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueProcessor>>();
+    private static final JsonLoaderUtil<JsonLoader<ValueProcessor>> processorLoaderUtil = new JsonLoaderUtil<>();
     private static final Random RANDOM = new Random();
 
     public static String loadJsonType(JSONObject jsonObject) throws RegurgitatorException {
@@ -142,7 +142,7 @@ public class JsonConfigUtil {
     }
 
     public static List<ValueProcessor> loadOptionalValueProcessors(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        List<ValueProcessor> processors = new ArrayList<ValueProcessor>();
+        List<ValueProcessor> processors = new ArrayList<>();
         Object processorObj = jsonObject.get(PROCESSOR);
         Object processorsObj = jsonObject.get(PROCESSORS);
 

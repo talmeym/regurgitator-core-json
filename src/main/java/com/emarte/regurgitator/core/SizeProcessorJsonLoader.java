@@ -16,7 +16,7 @@ public class SizeProcessorJsonLoader implements JsonLoader<SizeProcessor> {
     private static final Log log = getLog(SizeProcessorJsonLoader.class);
 
     @Override
-    public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public SizeProcessor load(JSONObject jsonObject, Set<Object> allIds) {
         boolean lastIndex = loadOptionalBool(jsonObject, AS_INDEX);
         log.debug("Loaded size processor");
         return new SizeProcessor(lastIndex);

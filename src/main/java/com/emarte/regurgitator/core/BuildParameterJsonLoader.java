@@ -16,7 +16,7 @@ import static com.emarte.regurgitator.core.Log.getLog;
 
 public class BuildParameterJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(BuildParameterJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<ValueBuilder>> builderLoaderUtil = new JsonLoaderUtil<JsonLoader<ValueBuilder>>();
+    private static final JsonLoaderUtil<JsonLoader<ValueBuilder>> builderLoaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {

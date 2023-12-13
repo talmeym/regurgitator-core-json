@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AbstractJsonPackageMap implements JsonPackageMap {
-    private final Map<List<String>, String> PACKAGE_TYPES = new HashMap<List<String>, String>();
+    private final Map<List<String>, String> PACKAGE_TYPES = new HashMap<>();
 
     protected void addPackageMapping(List<String> kinds, String pakkage) {
         PACKAGE_TYPES.put(kinds, pakkage);

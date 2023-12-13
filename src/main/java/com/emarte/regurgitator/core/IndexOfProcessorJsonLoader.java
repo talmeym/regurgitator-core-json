@@ -17,7 +17,7 @@ public class IndexOfProcessorJsonLoader implements JsonLoader<IndexOfProcessor> 
     private static final Log log = getLog(IndexOfProcessorJsonLoader.class);
 
     @Override
-    public IndexOfProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public IndexOfProcessor load(JSONObject jsonObject, Set<Object> allIds) {
         String source = loadOptionalStr(jsonObject, SOURCE);
         String value = loadOptionalStr(jsonObject, VALUE);
         boolean backwards = loadOptionalBool(jsonObject, LAST);

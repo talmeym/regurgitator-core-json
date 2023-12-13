@@ -8,7 +8,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -19,11 +18,11 @@ import static com.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(SequenceJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        List<Step> steps = new ArrayList<Step>();
+        List<Step> steps = new ArrayList<>();
         JSONArray jsonArray = loadMandatoryArray(jsonObject, STEPS);
 
         for (Object obj : jsonArray) {
