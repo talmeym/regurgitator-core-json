@@ -23,7 +23,7 @@ public class JsonConfigUtil {
     private static final JsonLoaderUtil<JsonLoader<ValueProcessor>> processorLoaderUtil = new JsonLoaderUtil<>();
     private static final Random RANDOM = new Random();
 
-    public static String loadJsonType(JSONObject jsonObject) throws RegurgitatorException {
+    public static String loadJsonKind(JSONObject jsonObject) throws RegurgitatorException {
         if(jsonObject.containsKey(KIND)) {
             return jsonObject.getString(KIND);
         }
@@ -32,7 +32,7 @@ public class JsonConfigUtil {
     }
 
     public static String loadId(JSONObject jsonObject, Set<Object> ids) throws RegurgitatorException {
-        String id = jsonObject.containsKey(ID) ? jsonObject.getString(ID) : loadJsonType(jsonObject) + "-" + RANDOM.nextInt(100000);
+        String id = jsonObject.containsKey(ID) ? jsonObject.getString(ID) : loadJsonKind(jsonObject) + "-" + RANDOM.nextInt(100000);
 
         if (!ids.add(id)) {
             throw new RegurgitatorException("Duplicate id: {}" + id);

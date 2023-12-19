@@ -6,8 +6,8 @@ package com.emarte.regurgitator.core;
 
 import net.sf.json.JSONObject;
 
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadJsonType;
-import static com.emarte.regurgitator.core.JsonPackageLookup.getPackageForType;
+import static com.emarte.regurgitator.core.JsonConfigUtil.loadJsonKind;
+import static com.emarte.regurgitator.core.JsonPackageLookup.getPackageForKind;
 import static com.emarte.regurgitator.core.StringUtil.dashesToCamelCase;
 
 public class JsonLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<JSONObject, TYPE> {
@@ -19,8 +19,8 @@ public class JsonLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<JSONOb
 
     @Override
     String deriveClass(JSONObject jsonObject) throws RegurgitatorException {
-        String type = loadJsonType(jsonObject);
-        return deriveClass(getPackageForType(type), dashesToCamelCase(type));
+        String kind = loadJsonKind(jsonObject);
+        return deriveClass(getPackageForKind(kind), dashesToCamelCase(kind));
     }
 
     @Override
