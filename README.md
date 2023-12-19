@@ -323,12 +323,16 @@ a create-response returns a response back from regurgitator via a message's ``re
     "kind": "create-response",
     "source": "parameters:response-text"
 }
+```
 
+```json
 {
     "kind": "create-response",
     "value": "<xml>this is the response</xml>"
 }
+```
 
+```json
 {
     "kind": "create-response",
     "file": "classpath:/canned_response.xml"
@@ -357,7 +361,9 @@ having identified your session, you can store and retrieve parameters from the s
     "name": "session:stored-value",
     "value": "store this"
 }
+```
 
+```json
 {
     "kind": "create-parameter",
     "name": "local-parameter",
@@ -457,7 +463,9 @@ a uuid-generator generates a uuid parameter value.
         "kind": "uuid-generator"
     }
 }
+```
 
+```json
 {
     "kind": "generate-parameter",
     "name": "new-id",
@@ -515,9 +523,11 @@ an index-processor manipulates collection parameter values, such as ``LIST_OF_ST
     "kind": "create-parameter",
     "name": "data",
     "type": "LIST_OF_STRING",
-    "value": "not this one,or this one,but this one",
+    "value": "not this one,or this one,but this one"
 }
+```
 
+```json
 {
     "kind": "create-parameter",
     "name": "the-one",
@@ -543,9 +553,11 @@ an index-of-processor manipulates collection parameter values, such as ``LIST_OF
     "kind": "create-parameter",
     "name": "data",
     "type": "LIST_OF_STRING",
-    "value": "not this one,or this one,but this one",
+    "value": "not this one,or this one,but this one"
 }
+```
 
+```json
 {
     "kind": "create-parameter",
     "name": "index-of-the-one",
@@ -571,9 +583,11 @@ a size-processor manipulates collection parameter values, such as ``LIST_OF_STRI
     "kind": "create-parameter",
     "name": "data",
     "type": "LIST_OF_STRING",
-    "value": "one,two,three,four",
+    "value": "one,two,three,four"
 }
+```
 
+```json
 {
     "kind": "create-parameter",
     "name": "data-size",
@@ -590,9 +604,11 @@ the optional ``as-index`` property returns the size zero-indexed, e.g. 3 items r
     "kind": "create-parameter",
     "name": "data",
     "type": "LIST_OF_STRING",
-    "value": "one,two,three,four",
+    "value": "one,two,three,four"
 }
+```
 
+```json
 {
     "kind": "create-parameter",
     "name": "four",
