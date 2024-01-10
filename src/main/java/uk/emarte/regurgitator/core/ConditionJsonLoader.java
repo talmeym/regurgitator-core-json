@@ -9,12 +9,12 @@ import net.sf.json.JSONObject;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.util.Map.Entry;
 import static uk.emarte.regurgitator.core.CoreConfigConstants.*;
 import static uk.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
 import static uk.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
 import static uk.emarte.regurgitator.core.JsonConfigUtil.*;
 import static uk.emarte.regurgitator.core.Log.getLog;
-import static java.util.Map.Entry;
 
 class ConditionJsonLoader {
     private static final Log log = getLog(ConditionJsonLoader.class);
