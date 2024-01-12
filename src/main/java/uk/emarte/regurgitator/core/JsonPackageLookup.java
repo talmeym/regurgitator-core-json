@@ -9,15 +9,15 @@ import java.util.ServiceLoader;
 class JsonPackageLookup {
     private static final ServiceLoader<JsonPackageMap> PACKAGE_MAPS = ServiceLoader.load(JsonPackageMap.class);
 
-    static String getPackageForType(String type) throws RegurgitatorException {
+    static String getPackageForKind(String kind) throws RegurgitatorException {
         for(JsonPackageMap set: PACKAGE_MAPS) {
-            String pakkage = set.getPackageForKind(type);
+            String pakkage = set.getPackageForKind(kind);
 
             if(pakkage != null) {
                 return pakkage;
             }
         }
 
-        throw new RegurgitatorException("Package not found for type: " + type);
+        throw new RegurgitatorException("Package not found for kind: " + kind);
     }
 }

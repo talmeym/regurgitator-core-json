@@ -18,7 +18,7 @@ import static uk.emarte.regurgitator.core.Log.getLog;
 
 class ConditionJsonLoader {
     private static final Log log = getLog(ConditionJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<ConditionBehaviour>>();
+    private static final JsonLoaderUtil<JsonLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new JsonLoaderUtil<>();
 
     public static Condition load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         String source = loadMandatoryStr(jsonObject, SOURCE);
@@ -52,7 +52,7 @@ class ConditionJsonLoader {
     private static Entry<?, ?> getBehaviourAttribute(JSONObject jsonObject) throws RegurgitatorException {
         boolean behaviourFieldFound = jsonObject.containsKey(BEHAVIOUR);
         Set<Entry<?, ?>> entries = jsonObject.entrySet();
-        Set<Entry<?, ?>> behavioursFound = new HashSet<Entry<?, ?>>();
+        Set<Entry<?, ?>> behavioursFound = new HashSet<>();
 
         for(Entry<?, ?> entry: entries) {
             if(entry.getValue() instanceof String) {

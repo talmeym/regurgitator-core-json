@@ -14,7 +14,7 @@ public class SubstituteProcessorJsonLoader implements JsonLoader<SubstituteProce
     private static final Log log = getLog(SubstituteProcessorJsonLoader.class);
 
     @Override
-    public SubstituteProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+    public SubstituteProcessor load(JSONObject jsonObject, Set<Object> allIds) {
         String token = jsonObject.getString(CoreConfigConstants.TOKEN);
         String replacement = jsonObject.getString(CoreConfigConstants.REPLACEMENT);
         log.debug("Loaded substitute processor");

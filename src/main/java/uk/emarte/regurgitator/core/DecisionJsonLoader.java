@@ -21,8 +21,8 @@ import static uk.emarte.regurgitator.core.StringType.stringify;
 public class DecisionJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(DecisionJsonLoader.class);
 
-    private static final JsonLoaderUtil<JsonLoader<Step>> stepLoaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
-    private static final JsonLoaderUtil<JsonLoader<RulesBehaviour>> rulesBehaviourLoaderUtil = new JsonLoaderUtil<JsonLoader<RulesBehaviour>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> stepLoaderUtil = new JsonLoaderUtil<>();
+    private static final JsonLoaderUtil<JsonLoader<RulesBehaviour>> rulesBehaviourLoaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
@@ -46,7 +46,7 @@ public class DecisionJsonLoader implements JsonLoader<Step> {
     }
 
     private List<Rule> loadRules(JSONObject jsonObject, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
-        List<Rule> rules = new ArrayList<Rule>();
+        List<Rule> rules = new ArrayList<>();
 
         for (Object obj : loadMandatoryArray(jsonObject, RULES)) {
             rules.add(loadRule((JSONObject) obj, stepIds, allIds));
@@ -56,7 +56,7 @@ public class DecisionJsonLoader implements JsonLoader<Step> {
     }
 
     private List<Step> loadSteps(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        List<Step> steps = new ArrayList<Step>();
+        List<Step> steps = new ArrayList<>();
 
         for (Object obj : loadMandatoryArray(jsonObject, STEPS)) {
             JSONObject object = (JSONObject) obj;
@@ -67,7 +67,7 @@ public class DecisionJsonLoader implements JsonLoader<Step> {
     }
 
     private Set<Object> stepIds(List<Step> steps) {
-        Set<Object> stepIds = new HashSet<Object>(steps.size());
+        Set<Object> stepIds = new HashSet<>(steps.size());
 
         for (Step step : steps) {
             stepIds.add(step.getId());

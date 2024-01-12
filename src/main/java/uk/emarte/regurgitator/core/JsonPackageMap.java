@@ -5,5 +5,5 @@
 package uk.emarte.regurgitator.core;
 
 public interface JsonPackageMap {
-    String getPackageForKind(String type);
+    String getPackageForKind(String kind);
 }

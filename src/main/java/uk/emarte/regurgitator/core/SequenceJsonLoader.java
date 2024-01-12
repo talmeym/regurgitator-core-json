@@ -18,11 +18,11 @@ import static uk.emarte.regurgitator.core.Log.getLog;
 
 public class SequenceJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(SequenceJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-        List<Step> steps = new ArrayList<Step>();
+        List<Step> steps = new ArrayList<>();
         JSONArray jsonArray = loadMandatoryArray(jsonObject, STEPS);
 
         for (Object obj : jsonArray) {
