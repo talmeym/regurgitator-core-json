@@ -4,6 +4,8 @@ regurgitator is a lightweight, modular, extendable java framework that you confi
 
 start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
+[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-json/0.1.2/)
+
 ## json configuration of regurgitator
 
 below is an example of a json configuration file for regurgitator:
