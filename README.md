@@ -522,9 +522,9 @@ a substitute-processor manipulates ``STRING`` values, replacing occurrences of o
 
 more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-json#value-processors).
 
-### index-processor
+### at-index-processor
 
-an index-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the data value at a given index, starting from zero.
+an at-index-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the data value at a given index, starting from zero.
 
 ```json
 {
@@ -542,8 +542,8 @@ an index-processor manipulates collection parameter values, such as ``LIST_OF_ST
     "type": "STRING",
     "source": "data",
     "processor": {
-        "kind": "index-processor",
-        "index": "2"
+        "kind": "at-index-processor",
+        "value": "2"
     }
 }
 ```
