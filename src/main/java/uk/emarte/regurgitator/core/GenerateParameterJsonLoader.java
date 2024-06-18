@@ -26,6 +26,6 @@ public class GenerateParameterJsonLoader implements JsonLoader<Step> {
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded generate parameter '{}'", id);
-        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processors);
+        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processors, loadOptionalBool(jsonObject, CoreConfigConstants.OPTIONAL));
     }
 }
