@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import static uk.emarte.regurgitator.core.CoreConfigConstants.GENERATOR;
+import static uk.emarte.regurgitator.core.CoreConfigConstants.OPTIONAL;
 import static uk.emarte.regurgitator.core.EntityLookup.valueGenerator;
 import static uk.emarte.regurgitator.core.JsonConfigUtil.*;
 import static uk.emarte.regurgitator.core.Log.getLog;
@@ -26,6 +27,6 @@ public class GenerateParameterJsonLoader implements JsonLoader<Step> {
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded generate parameter '{}'", id);
-        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processors, loadOptionalBool(jsonObject, CoreConfigConstants.OPTIONAL));
+        return new GenerateParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), generator, processors, loadOptionalBool(jsonObject, OPTIONAL));
     }
 }
