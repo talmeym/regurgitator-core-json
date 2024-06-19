@@ -22,6 +22,6 @@ public class CreateParameterJsonLoader extends CreateParameterLoader implements 
         String value = loadOptionalStr(jsonObject, VALUE);
         String file = loadOptionalStr(jsonObject, FILE);
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
-        return buildCreateParameter(loadId(jsonObject, allIds), loadPrototype(jsonObject), loadContext(jsonObject), source, value, file, processors, log);
+        return buildCreateParameter(loadId(jsonObject, allIds), loadPrototype(jsonObject), loadContext(jsonObject), source, value, file, processors, loadOptionalBool(jsonObject, OPTIONAL), log);
     }
 }

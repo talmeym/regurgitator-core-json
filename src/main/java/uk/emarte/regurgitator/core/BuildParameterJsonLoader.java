@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import static uk.emarte.regurgitator.core.CoreConfigConstants.BUILDER;
+import static uk.emarte.regurgitator.core.CoreConfigConstants.OPTIONAL;
 import static uk.emarte.regurgitator.core.EntityLookup.valueBuilder;
 import static uk.emarte.regurgitator.core.JsonConfigUtil.*;
 import static uk.emarte.regurgitator.core.Log.getLog;
@@ -25,6 +26,6 @@ public class BuildParameterJsonLoader implements JsonLoader<Step> {
         List<ValueProcessor> processors = loadOptionalValueProcessors(jsonObject, allIds);
         String id = loadId(jsonObject, allIds);
         log.debug("Loaded build parameter '{}'", id);
-        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), builder, processors);
+        return new BuildParameter(id, loadPrototype(jsonObject), loadContext(jsonObject), builder, processors, loadOptionalBool(jsonObject, OPTIONAL));
     }
 }
