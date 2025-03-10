@@ -629,4 +629,6 @@ the optional ``as-index`` property returns the size zero-indexed, e.g. 3 items r
 
 more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-json#value-processors).
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-json/0.1.4/){:target="_blank"}
+---
+
+api docs: [``0.1.4``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-json/0.1.4/){:target="_blank"} [``0.1.3``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-json/0.1.3/){:target="_blank"} [``0.1.2``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-json/0.1.2/){:target="_blank"}
